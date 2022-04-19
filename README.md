@@ -28,6 +28,10 @@ course.
 
     -   [Retraction Watch](https://retractionwatch.com)
 
+    -   [Examining the reproducibility of 6 published
+        studies](https://www.researchgate.net/publication/323391211_Examining_the_Reproducibility_of_6_Published_Studies_in_Public_Health_Services_and_Systems_Research)
+        in public health services and systems research
+
 ### Lesson 2: Course logistics
 
 -   Technical requirements, prior knowledge expectations (expect
@@ -36,10 +40,13 @@ course.
 -   Course overview and recommendations (use RStudio)
 -   Walk through of zip file containing R code file, codebook, data, R
     Project
+-   Walk through the reproducible report that will be the final product
+    (take the cake out of the oven)
 
-[Provide zip file of code, codebook, data, R Project. Data and codebook
-are publicly available 2019 SPSS data file and Word document codebook
-from Pew on internet use by teenagers.]
+[Provide zip file of code, codebook, data, R Project, text in an
+unformatted text file. Data and codebook are publicly available 2019
+SPSS data file and Word document codebook from Pew on internet use by
+teenagers.]
 
 ## Part I: Writing reproducible code
 
@@ -47,8 +54,8 @@ from Pew on internet use by teenagers.]
 
 -   Introduce rationale for using white space
 -   Discuss the 80 character rule, spaces before and after operators,
-    hard returns after commas and other strategies for making code
-    readable
+    hard returns after procedures, hard returns after commas, indenting
+    code, and other strategies for making code readable
 -   Introduce tools for automatically checking and restyling code:
     [styler](https://styler.r-lib.org) and
     [lintr](https://github.com/r-lib/lintr)
@@ -66,14 +73,38 @@ from Pew on internet use by teenagers.]
 
 ### Lesson 4: Naming things
 
--   Introduce recommendations and rationale for using human (and
-    machine) readable naming
--   Formatting names consistently using camel case, dot case, snake
-    case, upper camel case, and Pascal case
--   Following existing guidance for formatting names
--   Tidyverse refresher of rename and mutate/recode_factor
+-   Introduce rationale for using meaningful human (and machine)
+    readable names for variables, data frames, functions, files, and
+    other nameable things
+-   Two parts to naming things
+    -   Information in the name
+        -   Use meaningful words
+        -   Avoid reserve words
+    -   Format of the name
+        -   Avoid spaces and special characters
+
+        -   Consistently use:
+
+            -   camelCase
+            -   dot.case
+            -   snake_case
+            -   UPPER_SNAKE_CASE
+            -   PascalCase
+            -   kebab-case
+-   tidyverse refresher
+    -   The rename function
+    -   The mutate/recode_factor functions
 -   Demo: clean up names in provided R code file
 -   Exercise: clean up names in provided R code file
+-   Resources:
+    -   [Google’s R Style
+        Guide](https://google.github.io/styleguide/Rguide.xml)
+
+    -   [The tidyverse style guide](https://style.tidyverse.org)
+
+    -   [The Art of Readable
+        Code](http://shop.oreilly.com/product/9780596802301.do) by
+        Boswell & Foucher
 
 ### Lesson 5: Using function arguments
 
@@ -115,6 +146,7 @@ from Pew on internet use by teenagers.]
 -   Introduce literate programming and RMarkdown in particular
 -   Discuss the difference between code chunks and the rest of the
     document
+-   Show code chunk naming and how it helps organize
 -   Discuss common and useful formatting tools including hashtags and
     asterisks
 -   Show how to set code chunk options for the document and how to
