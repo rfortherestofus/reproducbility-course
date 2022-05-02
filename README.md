@@ -163,7 +163,7 @@ teenagers.]
 
 ## Part II: Developing reproducible documents
 
-### Lesson 8: Integrating code and text
+### Lesson 9: Integrating code and text
 
 -   Introduce literate programming and RMarkdown in particular
 -   Discuss the difference between code chunks and the rest of the
@@ -177,8 +177,13 @@ teenagers.]
     word document
 -   Demo: add and format some text, knit the document
 -   Exercise: add and format additional text, knit the document
+-   Resources: 
+    - [R Markdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+    - [R Markdown](https://rmarkdown.rstudio.com) from R Studio
+    - [R Markdown](https://r4ds.had.co.nz/r-markdown.html) from R for Data Science
+    - [R Markdown](https://cran.r-project.org/web/packages/rmarkdown/index.html) package documentation
 
-### Lesson 9: Embedding data and RMarkdown files into knitted documents
+### Lesson 10: Embedding data and RMarkdown files into knitted documents
 
 -   Discuss that to reproduce documents it's important to have the code
     and data (when possible)
@@ -187,7 +192,7 @@ teenagers.]
 -   Demo: use xfun to embed the RMarkdown file and the Pew data into the
     knit html file
 
-### Lesson 10: Keeping R package versions consistent over time
+### Lesson 11: Keeping R package versions consistent over time
 
 -   Discuss package versions
 -   Demo: show how to use the renv package to keep versions used in a
