@@ -62,11 +62,7 @@ teenagers.]
 -   Demo: fix spacing in provided R code file
 -   Exercise: fix spacing in provided R code file
 -   Resources:
-    -   [Google’s R Style
-        Guide](https://google.github.io/styleguide/Rguide.xml)
-
     -   [The tidyverse style guide](https://style.tidyverse.org)
-
     -   [The Art of Readable
         Code](http://shop.oreilly.com/product/9780596802301.do) by
         Boswell & Foucher
@@ -97,11 +93,7 @@ teenagers.]
 -   Demo: clean up names in provided R code file
 -   Exercise: clean up names in provided R code file
 -   Resources:
-    -   [Google’s R Style
-        Guide](https://google.github.io/styleguide/Rguide.xml)
-
     -   [The tidyverse style guide](https://style.tidyverse.org)
-
     -   [The Art of Readable
         Code](http://shop.oreilly.com/product/9780596802301.do) by
         Boswell & Foucher
@@ -109,17 +101,37 @@ teenagers.]
 ### Lesson 5: Using function arguments
 
 -   Introduce recommendations and rationale for using function arguments
--   Discuss argument ordering
+    - formal arguments vs. actual or calling arguments
+    - three ways of specifying arguments: exact, partial, and position
+-   The benefits of exact or partial over position
+-   Demo: show how argument ordering works by flipping the order in a ggplot
 -   Demo: add function arguments in provided R code file
 -   Exercise: add function arguments in provided R code file
+-   Resources:
+    -   [The tidyverse style guide](https://style.tidyverse.org/functions.html)
 
+    -   [The Art of Readable
+        Code](http://shop.oreilly.com/product/9780596802301.do) by
+        Boswell & Foucher
+        
 ### Lesson 6: Prolog & Annotation
 
 -   Introduce recommendations and rationale for annotation and prolog
--   Discuss pros and cons of annotation (some suggest it makes work less
-    reproducible since often not updated)
+-   Show the different varieties of prolog
+    - The short informal prolog
+    - The long formal prolog
+-   Discuss pros and cons of annotation
+    - Annotation should be the reason for the code not describe what it does
+    - Some suggest it makes work less reproducible since often not updated
+    - Clear code is the goal, annotation used sparingly to clarify is useful
 -   Demo: add annotation and prolog to provided R code file
 -   Exercise: add annotation and prolog to provided R code file
+-   Resources:
+    -   [The tidyverse style guide](https://style.tidyverse.org/functions.html)
+    -   [The Art of Readable
+        Code](http://shop.oreilly.com/product/9780596802301.do) by
+        Boswell & Foucher
+    -   [coding2share Reproducibility Toolkit](https://coding2share.github.io/ReproducibilityToolkit/Mod3Code.html#intro)
 
 ### Lesson 7: Using seed values
 
