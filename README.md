@@ -136,20 +136,30 @@ teenagers.]
 ### Lesson 7: Using seed values
 
 -   Introduce the concept of a seed value
+    - When random processes are called, like taking a random sample from a data set, R uses the current time value as a starting point, this is the "seed" 
 -   Discuss settings where seed values are applicable
+    - Any process that relies on random values will use a seed
 -   Demonstrate how a seed value makes a difference in example code
--   Demo: add seed value to provided R code file
+    - Select a random sample and then another random sample and show the basic descriptive and graphic info
 -   Exercise: add seed value to provided R code file
+- Resources:
+    - [UC Business Analytics R Programming Guide](http://uc-r.github.io/setting_seed/)
+    - [Random Number Generation R Help Documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html)
+    - [How to Use Random Seeds Effectively](https://towardsdatascience.com/how-to-use-random-seeds-effectively-54a4cd855a79)
 
 ### Lesson 8: Writing functions for repeated tasks
 
 -   Introduce the 3 times rule (if you do the same thing more than 3
     times, write a function for it)
--   Demonstrate how to write a very simple function
+-   Demonstrate how to write a very simple function to create a basic bar graph for several variables
 -   Demonstrate how a function makes a difference in example code (the
     long way v. the short way)
--   Demo: add seed value to provided R code file
--   Exercise: add seed value to provided R code file
+-   Exercise: write a function in the provided R code file
+-   Resources:
+    - [Creating Functions](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/), Carpentry
+    - [Functions](https://r4ds.had.co.nz/functions.html), R for Data Science
+    - [Functions](https://adv-r.hadley.nz/functions.html), Advanced R by Hadley Wickham
+    
 
 ## Part II: Developing reproducible documents
 
