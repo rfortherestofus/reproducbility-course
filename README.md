@@ -182,18 +182,26 @@ teenagers.]
     - [R Markdown](https://rmarkdown.rstudio.com) from R Studio
     - [R Markdown](https://r4ds.had.co.nz/r-markdown.html) from R for Data Science
     - [R Markdown](https://cran.r-project.org/web/packages/rmarkdown/index.html) package documentation
+    - [Using RMarkdown to Create Reproducible Documents](https://www.youtube.com/watch?v=z2a80FnLFfE&t=98s) with Mine Çetinkaya-Rundel
 
-### Lesson 10: Embedding data and RMarkdown files into knitted documents
+### Lesson 10: Embedding data and R Markdown files into knitted documents
 
 -   Discuss that to reproduce documents it's important to have the code
     and data (when possible)
--   RMarkdown can embed data sources and RMarkdown files in knit
+-   R Markdown can embed data sources and R Markdown files in knit
     documents using the xfun package
--   Demo: use xfun to embed the RMarkdown file and the Pew data into the
+-   Demo: use xfun to embed the R Markdown file and the Pew data into the
     knit html file
+- Resources: 
+    - [xfun](https://cran.r-project.org/web/packages/xfun/index.html) package documentation
+    - [Using RMarkdown to Create Reproducible Documents](https://www.youtube.com/watch?v=z2a80FnLFfE&t=98s) with Mine Çetinkaya-Rundel
 
 ### Lesson 11: Keeping R package versions consistent over time
 
 -   Discuss package versions
 -   Demo: show how to use the renv package to keep versions used in a
     document linked to the document
+-   Resources:
+    - [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html) by Kevin Ushey
+    - [renv: Project Environments for R](https://www.rstudio.com/blog/renv-project-environments-for-r/)
+
