@@ -1,0 +1,113 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+
+## What is reproducibility?
+
+* Analyses are **reproducible** when analyzing the same data with the same methods produces the same results.
+
+* This is different from: 
+
+     + **Repeatability**, which is the ability to conduct the same analysis on the same data (regardless of results) 
+     
+     + **Replicability**, which is the ability collect new data, use the same methods, and get the same results (this is the gold standard!)
+     
+---
+
+## How big is the reproducibility problem?
+
+* Researchers could only replicate [21% of 67 drug studies](https://www.nature.com/articles/nrd3439-c1?linkId=33568131), [40% to 60% of psychology studies](https://doi.org/10.1126/science.aac4716), and [61% of economics studies](https://www.science.org/doi/abs/10.1126/science.aaf0918)
+
+* In a sample of psychology papers, [6% of p-values were incorrectly reported](https://link.springer.com/article/10.3758/s13428-015-0664-2) 
+
+* [11% of p-values](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-4-13) were incorrectly reported in a sample of medical papers
+
+* [20 to 80% of papers](https://retractionwatch.com/2017/04/21/dear-journals-clean-act-regards-concerned-biostatistican/) in each of ten top scientific journals omitted or were unclear about sample sizes and up to 40% of papers in each journal did not include the type of statistical tests performed 
+
+* Tables were mislabeled in [three of six reproduced public health studies](https://journals.lww.com/jphmp/Abstract/2019/03000/Examining_the_Reproducibility_of_6_Published.6.aspx)
+
+---
+
+## What? 
+
+![](things-that-make-you-go.jpg)
+---
+
+## Why does it matter? 
+
+* [Errors and omissions](https://jme.bmj.com/content/37/4/249.short) can threaten the foundation of research that practitioners and policy-makers use to make decisions
+
+* Poor quality research can also threaten human health with over [400,000 people enrolled and over 70,000 treated](https://jme.bmj.com/content/37/11/688.short) in medical studies later retracted
+
+* Retracted research [continues to be cited](https://jamanetwork.com/journals/jama/article-abstract/209653) after retraction, influencing additional science
+
+![](aaaaaa.jpg)
+
+---
+
+## How can I make my research reproducible? 
+
+* Two things are needed to reproduce research:
+
+    + Access to the data 
+
+    + The statistical code or very detailed methods instructions
+    
+---
+
+## How can R Markdown help? 
+
+* R Markdown is one of several tools for literate programming 
+
+* Literate programming integrates text with code and results in a single document
+
+---
+
+## What features of R Markdown facilitate reproducibility?
+
+* Integration of code and text and results
+
+* Automated references
+
+* Some output formats can also embed the data
+
+* Highly flexible output formatting (e.g., html, Word, pdf)
+
+---
+
+## Seriously?
+
+![](huge-if-true.JPG)
+
+---
+
+class: inverse, center, middle
+
+## Sample Inverse
+
+---
+
+class: my-turn
+
+## Sample My Turn
+
+Exercitation consectetur sit excepteur cillum ad irure labore pariatur incididunt. Esse enim mollit velit nulla eiusmod consectetur occaecat laborum excepteur eu laborum enim pariatur do. Eiusmod exercitation minim incididunt nisi Lorem. Consectetur irure laboris est id aliquip Lorem. Minim et minim tempor ut aute minim. Velit non officia nisi proident enim sint. Nisi irure eu reprehenderit duis laboris amet velit velit consectetur magna quis. Veniam quis incididunt do non ipsum. Ut deserunt dolore sint aliquip ex deserunt eiusmod cillum ut. Qui sit officia in voluptate officia qui enim eiusmod id dolor incididunt est.
+
