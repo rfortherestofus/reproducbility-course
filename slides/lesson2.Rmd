@@ -1,0 +1,45 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+
+## Lesson 2: Course logistics
+
+
+
+---
+
+## Expectations and technical requirements
+
+---
+
+## Course overview and recommendations
+
+---
+
+## Walk through of materials
+
+---
+
+## Walk through reproducible report
+
+
+
+
