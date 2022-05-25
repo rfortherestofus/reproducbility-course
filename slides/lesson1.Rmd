@@ -79,6 +79,8 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Literate programming integrates text with code and results in a single document
 
+* Using literate programming and other reproducible research practices facilitates collaboration with others and future you 
+
 ---
 
 ## What features of R Markdown facilitate reproducibility?
@@ -93,6 +95,8 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ---
 
+class: middle
+
 ## Seriously?
 
 ![](huge-if-true.JPG)
@@ -101,13 +105,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 class: inverse, center, middle
 
-## Sample Inverse
+## Let's do this!
 
----
 
-class: my-turn
-
-## Sample My Turn
-
-Exercitation consectetur sit excepteur cillum ad irure labore pariatur incididunt. Esse enim mollit velit nulla eiusmod consectetur occaecat laborum excepteur eu laborum enim pariatur do. Eiusmod exercitation minim incididunt nisi Lorem. Consectetur irure laboris est id aliquip Lorem. Minim et minim tempor ut aute minim. Velit non officia nisi proident enim sint. Nisi irure eu reprehenderit duis laboris amet velit velit consectetur magna quis. Veniam quis incididunt do non ipsum. Ut deserunt dolore sint aliquip ex deserunt eiusmod cillum ut. Qui sit officia in voluptate officia qui enim eiusmod id dolor incididunt est.
 
