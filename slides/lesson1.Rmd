@@ -89,7 +89,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Automated references
 
-* Some output formats can also embed the data
+* Some output formats can also embed the data and code
 
 * Highly flexible output formatting (e.g., html, Word, pdf)
 
