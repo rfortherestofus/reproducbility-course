@@ -1,0 +1,56 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+## Lesson 10: Embedding files to improve reproducibility
+
+* To reproduce analyses, the data and the code (or very detailed instructions for analysis) are the necessary components
+
+* One way to include everything needed for reproducing analyses is embedding the data, code, and instructions in Quarto html rendered files
+
+    + The `xfun` package is used to embed files
+
+---
+
+## Using the `xfun` package
+
+* The `xfun` package can be used to attach a single file, multiple files, or a directory in a knit html document
+
+* When multiple files are attached, they are compressed into a zip file, which is embedded
+
+* The file, files, or directory is available by clicking on a link in the knit html file
+
+
+---
+
+## Demo of the `xfun` package
+
+```{r echo = FALSE}
+# demo the xfun package and .Rproj on the Quarto file
+# suggest to the audience they could follow along
+```
+
+---
+
+## Resources
+
+* [xfun](https://cran.r-project.org/web/packages/xfun/index.html) package documentation
+* [Using RMarkdown to Create Reproducible Documents](https://www.youtube.com/watch?v=z2a80FnLFfE&t=98s) with Mine Çetinkaya-Rundel
+    

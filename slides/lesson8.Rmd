@@ -1,0 +1,270 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+library(haven)
+library(tidyverse)
+
+globalData2019<-read_spss("participant-materials/Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
+```
+
+## Lesson 8: Writing functions for repeated tasks
+
+* Often in data projects we need to do the same thing multiple times
+
+* For example, it is common to recode multiple variables in the same way or to create bar plots that show relationships between an outcome variable and several other measures
+
+* While cutting and pasting working code is one solution, this can reduce reproducibility because every change made will have to be made multiple times if the code is edited later
+
+![](things-that-make-you-go.jpg){fig-alt = "A disgusted looking toy alligator"}
+
+---
+
+## The Rule of Three
+
+* In coding there is a general rule called the Rule of Three that states any code you have to repeat three times should be made into a function
+
+![](add-function-everything-breaks.jpeg){fig-alt = "A comic that says that adding a new function breaks your working code and then removing that function your code remains broken"}
+
+---
+
+## Example of breaking the Rule of Three
+
+* The Pew Research Center 2019 Global Attitudes survey asked how much confidence the participants had in specific world leaders
+
+* Everyone was asked about five world leaders: Trump, Xi, Putin, Merkel, and Macron
+
+* Depending on the country a participant resides in, they might also be asked about Abe, Modi, Orbán, Jong-un, Salman
+
+* For each of these leaders, participants were given the following response options: A lot of confidence, Some confidence, Not too much confidence, No confidence at all, Don't know, Refused
+
+* To format these items for analysis, the following code might be added to data management
+
+---
+
+## Adding labels to a set of variables
+
+```{r}
+# recoding confidence items to use labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate(
+    CONFID_TRUMP = recode_factor(
+      CONFID_TRUMP,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_XI = recode_factor(
+      CONFID_XI,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_PUTIN = recode_factor(
+      CONFID_PUTIN,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_MERKEL = recode_factor(
+      CONFID_MERKEL,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_MACRON = recode_factor(
+      CONFID_MACRON,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_ABE = recode_factor(
+      CONFID_ABE,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_MODI = recode_factor(
+      CONFID_MODI,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_ORBAN = recode_factor(
+      CONFID_ORBAN,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_KIM = recode_factor(
+      CONFID_KIM,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  ) %>%
+  mutate(
+    CONFID_SALMAN = recode_factor(
+      CONFID_SALMAN,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+    )
+  )
+```
+
+---
+
+## Or, write a function 
+
+```{r eval = TRUE}
+# function to recode confidence items
+recode_conf_items <- function(item) {
+  recode_factor(
+      item,
+      '1' = 'A lot of confidence',
+      '2' = 'Some confidence',
+      '3' = 'Not too much confidence',
+      '4' = 'No confidence at all',
+      '8' = NA_character_,
+      '9' = NA_character_
+  )
+}
+```
+
+---
+
+## Then apply it
+
+```{r}
+# recoding all confidence variables to add labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate(CONFID_TRUMP = recode_conf_items(CONFID_TRUMP)) %>% 
+  mutate(CONFID_XI = recode_conf_items(CONFID_XI)) %>% 
+  mutate(CONFID_PUTIN = recode_conf_items(CONFID_PUTIN)) %>% 
+  mutate(CONFID_MERKEL = recode_conf_items(CONFID_MERKEL)) %>% 
+  mutate(CONFID_MACRON = recode_conf_items(CONFID_MACRON)) %>% 
+  mutate(CONFID_ABE = recode_conf_items(CONFID_ABE)) %>% 
+  mutate(CONFID_MODI = recode_conf_items(CONFID_MODI)) %>% 
+  mutate(CONFID_ORBAN = recode_conf_items(CONFID_ORBAN)) %>% 
+  mutate(CONFID_KIM = recode_conf_items(CONFID_KIM)) %>% 
+  mutate(CONFID_SALMAN = recode_conf_items(CONFID_SALMAN)) 
+
+```
+
+---
+
+## That is still a lot of redundant code!
+
+* There are other ways to shorten lengthy redundant code 
+
+* One way in this situation would be to use the `mutate_at()` function
+
+```{r}
+# recoding all confidence variables to add labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate_at(vars('CONFID_TRUMP', 
+                 'CONFID_XI',
+                 'CONFID_PUTIN',
+                 'CONFID_MERKEL',
+                 'CONFID_MACRON',
+                 'CONFID_ABE',
+                 'CONFID_MODI',
+                 'CONFID_ORBAN',
+                 'CONFID_SALMAN'), recode_conf_items)
+```
+
+---
+
+## Can it be even shorter?
+
+* The `matches()` function can identify variables with redundant names, eliminating the need to list all the variable names separately
+
+```{r}
+# recoding all confidence variables to add labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate_at(vars(matches('CONFID')), recode_conf_items)
+```
+
+---
+
+## Exercise
+
+* In the `unformatted-r-code.R` file, replace the recoding of the `POLICY_` variables using a function to add labels and one of the mutate options shown here
+
+---
+
+## Resources:
+
+* [Creating Functions](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/), Carpentry
+
+* [Functions](https://r4ds.had.co.nz/functions.html), R for Data Science
+
+* [Functions](https://adv-r.hadley.nz/functions.html), Advanced R by Hadley Wickham
+    
+    

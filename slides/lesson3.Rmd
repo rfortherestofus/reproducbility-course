@@ -1,0 +1,222 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+## Lesson 3: Using space wisely
+
+In this lesson you will learn the rationale for using white space in coding and some of the common practices for good white space practices
+
+---
+
+## Why use white space?
+
+* White space makes your code easier to read, which helps future you and any collaborators or other researches using your code
+
+* For example, consider this code:
+
+```{r eval = FALSE}
+# no space
+library(package="tidyverse")
+cars%>%ggplot(aes(x=speed,y=dist))+geom_point(color="purple")+theme_minimal()
+```
+
+* Then add space:
+
+```{r eval = FALSE}
+# with space
+library(package = "tidyverse")
+
+cars %>% 
+  ggplot(aes(x = speed, y = dist)) + 
+  geom_point(color = "purple") + 
+  theme_minimal()
+```
+
+* It is much easier to pick out the `%>%` and to see the three different layers of the `ggplot()` function
+
+
+---
+
+## Three different types of space
+
+* Three different types of space were added to the code:
+
+    + line breaks or hard returns
+    
+    + spacing before and after operators
+    
+    + indenting code
+
+---
+
+## Line breaks & the 80 character rule
+
+* One thing that makes code difficult to read is when each line of code is so long that you have to scroll to the right to see the end of the code
+
+    + This is especially difficult if you are coding on a laptop screen, where your space is limited 
+    
+* This brings us to our first rule: *Lines of code should be no longer than 80 characters* (Shorter is even better!) 
+
+* Counting your characters does not seem fun, so to keep to 80 characters or fewer with the help of R Studio, click on the `Tools` menu, choose `Global Options`, choose `Code`, click on the `Display` tab and check the box next to `Show Margin` which defaults to 80 characters
+    + When you click back to the main window, you'll see a faint line at 80 characters in the source window
+
+![](characters80-screenshot.jpg){fig-alt = "screenshot showing the R dialog box where you can change the margin to 80 characters"}
+
+---
+
+## Adding line breaks
+
+```{r eval = FALSE}
+# before line breaks
+library(package="tidyverse")
+cars%>%ggplot(aes(x=speed,y=dist))+geom_point(color="purple")+theme_minimal()
+
+# after line breaks
+library(package="tidyverse")
+
+cars%>%
+ggplot(aes(x=speed,y=dist))+
+geom_point(color="purple")+
+theme_minimal()
+```
+
+---
+
+## Spacing before and after operators
+
+* Adding space after punctuation and around operators like `<-`, `=`, `+`, makes the operator more visible, enhancing the readability of your code
+
+* Consider these examples: 
+
+```{r eval = FALSE}
+# before spacing around operators and punctuation 
+cars%>%
+ggplot(aes(x=speed,y=dist))+
+geom_point(color="purple")+
+theme_minimal()
+
+# after spacing around operators and punctuation
+cars %>% 
+ggplot(aes(x = speed, y = dist)) + 
+geom_point(color = "purple") + 
+theme_minimal()
+```
+
+---
+
+## Indenting code
+
+* Multiline code that is all part of a single function or process can use indentation to show it belongs together
+    + The first line has no indentation and the following lines in the function or process are indented
+    
+```{r eval = FALSE}
+# before indentation
+cars %>% 
+ggplot(aes(x = speed, y = dist)) + 
+geom_point(color = "purple") + 
+theme_minimal()
+
+# after indentation
+cars %>% 
+  ggplot(aes(x = speed, y = dist)) + 
+  geom_point(color = "purple") + 
+  theme_minimal()
+```
+
+---
+
+## When should I format my code?
+
+* The best time to format your code is as you are coding
+
+* The second best time is now
+
+* This could induce a mild panic if you are looking at files with hundreds of lines of unformatted code
+
+* Never fear, there is an R package that can help
+
+---
+
+## The styler package for automatic formatting
+
+If you write or receive code that is not well formatted, there are tools to save some time in formatting
+
+* First, [styler](https://styler.r-lib.org) can style small amounts of code all the way to full documents
+
+* To use styler, install it first, then choose one of the styler tools: 
+    + `style_text()` function to style small amounts of code
+    + `style_file()` function to style specified R or Rmd files
+    + `style_dir()` function to style all R and Rmd files in a directory
+    + `style_pkg()` function to style the source files for R packages
+    + RStudio Addin to apply these functions from a drop-down menu
+    
+---
+
+## Using styler
+
+* Install the `styler` package
+
+* Open your unformatted code file 
+
+* Click the Addins menu in RStudio
+
+* Choose `Style_active_file` from the menu
+
+![](styler-screenshot.jpg){fig-alt = "Screenshot showing how styler works"}
+---
+
+## After using styler
+
+* By default, the `Style active file` menu item will style the code in the active file using the `tidyverse` style
+
+* The style can be customized 
+
+```{r eval = FALSE}
+# Before styler use
+library(package="tidyverse")
+cars%>%ggplot(aes(x=speed,y=dist))+geom_point(color="purple")+theme_minimal()
+
+# After styler use 
+library(package = "tidyverse")
+cars %>% ggplot(aes(x = speed, y = dist)) +
+  geom_point(color = "purple") +
+  theme_minimal()
+```
+
+---
+
+## Exercise
+
+* Open the `unformatted-r-code.R` file and fix the formatting 
+    + Add hard returns to keep lines short 
+    + Add spaces after punctuation and around operators
+    + Indent functions or processes that go together
+
+* Choose an option: 
+    + Fix the formatting by hand 
+    + Fix the formatting by hand then then run `styler` to find anything missed 
+    + Fix it using the `styler` package entirely
+
+---
+
+## Resources
+
+-   [The tidyverse style guide](https://style.tidyverse.org)
+-   [The Art of Readable Code](http://shop.oreilly.com/product/9780596802301.do) by Boswell & Foucher

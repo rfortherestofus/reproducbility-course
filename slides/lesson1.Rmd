@@ -48,7 +48,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## What? 
 
-![](things-that-make-you-go.jpg)
+![](things-that-make-you-go.jpg){fig-alt = "A disgusted looking toy alligator"}
 ---
 
 ## Why does it matter? 
@@ -59,7 +59,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Retracted research [continues to be cited](https://jamanetwork.com/journals/jama/article-abstract/209653) after retraction, influencing additional science
 
-![](aaaaaa.jpg)
+![](aaaaaa.jpg){fig-alt = "One possom yelling aaaaaa with another yelling aaaaa also"}
 
 ---
 
@@ -73,25 +73,32 @@ knitr::opts_chunk$set(eval = FALSE,
     
 ---
 
-## How can R Markdown help? 
+## How can Quarto help? 
 
-* R Markdown is one of several tools for literate programming 
+* [Quarto](https://quarto.org) is one of several tools for literate programming 
 
-* Literate programming integrates text with code and results in a single document
+* Literate programming integrates text with statistical code and output in a single document
 
-* Using literate programming and other reproducible research practices facilitates collaboration with others and future you 
+* Using literate programming and other reproducible research practices improves research quality and facilitates collaboration with others (including future you)
+
+![](replication-joke.JPG){fig-alt = "Tweet screenshot with joke text: if one statistician copies another statistician's joke on twitter are they performing a replication analysis"}
 
 ---
 
-## What features of R Markdown facilitate reproducibility?
+## What features of Quarto facilitate reproducibility?
 
 * Integration of code and text and results
 
-* Automated references
+* Markup options to format text with bullets, bold, underline, and other common styles 
 
-* Some output formats can also embed the data and code
+* Automated in-text citations and reference section
+
+* Option for html output format that can also embed the data and code
 
 * Highly flexible output formatting (e.g., html, Word, pdf)
+
+* Ability to create different document types (e.g., manuscript, slides)
+
 
 ---
 
@@ -99,7 +106,7 @@ class: middle
 
 ## Seriously?
 
-![](huge-if-true.JPG)
+![](huge-if-true.JPG){fig-alt = "Large versions of the words if and true, huge if true"}
 
 ---
 

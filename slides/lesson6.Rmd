@@ -1,0 +1,175 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+## Lesson 6: Prolog & Annotation
+
+* Prologs and annotation are two ways of adding information to your code file that will help future you and any collaborators understand the code
+
+* A prolog is text at the beginning of the file that describes the project purpose, the location of files, the file author, and anything else that is important to understanding why the file exists and how to use it
+
+* Annotation, or commenting, is providing descriptions of the purpose or function of specific code within the code file 
+
+* There are recommended ways of writing a prolog and annotation that will improve the quality and reproducibility of your work
+
+---
+
+## Prologs
+
+
+* A prolog is some information added (usually as comments or annotation) at the top of a code file to provide information about the contents of the file
+
+* A prolog can include:
+    + Project name
+    + Project purpose
+    + Name and location of any data sets used in the code
+    + Name of code author
+    + Date the code was created
+    + Date the code was last edited 
+
+* Sometimes there is a standard prolog that is used in an organization and this makes prolog creation straightforward
+
+* Other times you will create your own without a template
+
+
+---
+
+
+## Shorter prologs
+
+* For some projects, a short informal prolog is sufficient
+
+```{r}
+####################################
+# Project name
+# Project purpose
+# Code author name
+# Date last edited
+# Location of data used
+####################################
+
+```
+
+
+---
+
+
+## Longer prologs
+
+* For other projects, a longer formal prolog is more useful 
+
+* This type of prolog is likely to be adopted at large employers where more than one person will be working on code
+
+```{r}
+# PROLOG ################################################################
+# PROJECT:NAME OF PROJECT HERE #
+# PURPOSE:MAJOR POINT(S) OF WHAT I AM DOING WITH THE DATA HERE #
+# DIR:
+# DATA: 
+# list directory(-ies) for files here 
+# list data set file names/availability here, e.g., 
+# filename.correctextension 
+# somewebaddress.com 
+# AUTHOR NAME(S) 
+# AUTHOR:
+# CREATED:MONTH dd, YEAR 
+# LATEST:  MONTH dd, YEAR
+# NOTES:  indent all additional lines under each heading, #
+#         & use the hashmark bookends that appear #
+#         KEEP PURPOSE, AUTHOR, CREATED & LATEST ENTRIES IN UPPER CASE, #
+#         with appropriate case for DIR & DATA, lower case for notes #
+#         If multiple lines become too much, #
+#         simplify and write code book and readme. #
+# PROLOG         ######################################################
+```
+
+    
+---
+
+## Annotating your code 
+
+* Annotation is a set of comments that explain something about your code 
+
+* When writing code, the goal is clear code that does not need much annotation to understand its purpose 
+
+* Instead, annotation should give the reason for the code (not describe what it does)
+
+* Comments are written within a code chunk or script file using a # at the beginning of the line to signify (to R) that the line is a comment and not code
+
+* Annotation can make work **less reproducible** if it is not updated
+
+* Use annotation sparingly to clarify!
+
+---
+
+## Example of annotation
+
+* It is difficult to know, without running this code, what this figure will be:
+
+```{r eval = FALSE}
+globalData2019clean %>% 
+  ggplot(aes(x = AGE)) +
+  geom_histogram(color = "white") +
+  facet_wrap(facets = vars(country)) +
+  labs(x = "Age in years", 
+       caption = "Data source: Pew Research Center Global Attitudes Survey (2019)") +
+  theme_bw(base_size = 14, base_family = "serif")
+```
+
+* A simple statement can help:
+
+```{r eval = FALSE}
+# distribution of age by country using histograms
+globalData2019clean %>% 
+  ggplot(aes(x = AGE)) +
+  geom_histogram(color = "white") +
+  facet_wrap(facets = vars(country)) +
+  labs(x = "Age in years", 
+       caption = "Data source: Pew Research Center Global Attitudes Survey (2019)") +
+  theme_bw(base_size = 14, base_family = "serif")
+```
+
+---
+
+## Demo
+
+```{r echo = FALSE}
+# add some annotation and start a prolog in the participant file
+```
+
+---
+
+## Exercise
+
+* Open the participant `unformatted-r-code.R` file and complete the prolog
+
+* Add annotation where needed in the file
+
+---
+
+## Resources
+
+* [The tidyverse style guide](https://style.tidyverse.org/functions.html)
+
+* [The Art of Readable Code](http://shop.oreilly.com/product/9780596802301.do) by Boswell & Foucher
+
+* [coding2share Reproducibility Toolkit](https://coding2share.github.io/ReproducibilityToolkit/Mod3Code.html#intro)
+
+* [Statistics With R: Solving Problems Using Real-World Data](https://us.sagepub.com/en-us/nam/statistics-with-r/book253567) by Jenine K. Harris

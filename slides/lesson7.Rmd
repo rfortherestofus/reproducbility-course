@@ -1,0 +1,122 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+## Lesson 7: Using seed values
+
+* A seed value is a number that R uses as a starting point in a random process 
+
+* When random processes are called, like taking a random sample from a data set, R uses the current time value as a starting point, this is the default "seed"
+
+* Because time changes continuously, R never uses the same default seed 
+
+* So, any random process in R, like taking a random sample from a larger data set, will start in a different place and end up with a different result
+
+* **Without choosing a seed value explicitly, random processes in R are not reproducible**
+
+* To set a seed value explicitly and make a random process in R reproducible, the function `set.seed()` can be used 
+
+---
+
+## Random sample without set.seed()
+
+```{r eval = TRUE}
+# open the palmer penguins data set
+library(package = "palmerpenguins")
+# open the tidyverse to get the sample_n function
+library(package = "tidyverse")
+
+# sample the value of island variable from 4 observations
+sample_n(tbl = penguins, size = 4)
+
+```
+
+```{r eval = TRUE}
+# take a second sample with the same parameters
+sample_n(tbl = penguins, size = 4)
+```
+
+---
+
+## Random sample with `set.seed()`
+
+```{r eval = TRUE}
+# set the seed for reproducibility
+set.seed(seed = 42)
+
+# sample the value of island variable from 4 observations
+sample_n(tbl = penguins, size = 4)
+```
+
+```{r eval = TRUE}
+# take a second sample with the same parameters
+sample_n(tbl = penguins, size = 4)
+```
+
+* Oh no! That did not work! What happened?
+
+* The problem is that the second random sample was taken without setting the seed again
+
+---
+
+## Random samples both with set.seed()
+
+```{r eval = TRUE}
+# set the seed for reproducibility
+set.seed(seed = 42)
+
+# sample the value of island variable from 4 observations
+sample_n(tbl = penguins, size = 4)
+```
+
+```{r eval = TRUE}
+# set the same seed
+set.seed(seed = 42)
+
+# use the same sample code
+sample_n(tbl = penguins, size = 4)
+```
+
+---
+
+## Comparing the two samples
+
+* The first sample produced the data set with the same four observations as the second sample
+
+![](spiderman-samples.jpg){fig.alt = "Spiderman labeled sample 1 pointing at Spiderman labeled sample 2"}
+
+---
+
+## Exercise
+
+* Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code to for reproducible results
+
+* Note that the `sample()` function used in these slides will be overwritten by the `sample()` function in the dplyr
+
+---
+
+## Resources
+
+* [UC Business Analytics R Programming Guide](http://uc-r.github.io/setting_seed/)
+
+* [Random Number Generation R Help Documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html)
+
+* [How to Use Random Seeds Effectively](https://towardsdatascience.com/how-to-use-random-seeds-effectively-54a4cd855a79)
+

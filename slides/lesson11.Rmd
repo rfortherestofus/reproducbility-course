@@ -1,0 +1,52 @@
+---
+title: "Reproducibility for the Rest of Us"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+## Lesson 11: Keeping R package versions consistent over time
+
+* R packages are open source, created by the R community members rather than a single company
+
+* R packages are often updated to fix bugs or add or refine features 
+
+* Some updates to R packages can change how a function works or even whether a function exists 
+
+* For an R document to be fully reproducible, the version of the package originally used might be needed
+
+* The `renv` package is useful for creating a "lockfile" that stores the versions of R packages used in a document
+
+![](al-gore-democratic-party.gif){fig.alt = "Al Gore gif; Al Gore is famous for using lockbox as a metaphor during presidential debates"}
+
+---
+
+## Demo
+
+```{r echo = FALSE}
+# demo the renv package
+# suggest to the audience they could follow along
+```
+
+---
+
+## Resources:
+
+* [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html) by Kevin Ushey
+
+* [renv: Project Environments for R](https://www.rstudio.com/blog/renv-project-environments-for-r/)
+

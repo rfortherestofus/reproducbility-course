@@ -24,8 +24,6 @@ knitr::opts_chunk$set(eval = FALSE,
 
 In this lesson you will find more information about the skills and technology you will need to be successful in this course 
 
-
-
 ---
 
 ## Expectations and technical requirements
@@ -57,7 +55,7 @@ In this lesson you will find more information about the skills and technology yo
 
 ## Warning: Adopting new coding practices might result in...
 
-![](reading-code-i-wrote-last-year.png)
+![](reading-code-i-wrote-last-year.png){fig-alt = "Person looking at paper confused, then looking up confused with the caption of reading code I wrote last year"}
 
 ---
 
@@ -79,11 +77,6 @@ In this lesson you will find more information about the skills and technology yo
 ---
 
 ## Walk through reproducible report
-
----
-
-## Walk through reproducible report
-
 
 
 ---
