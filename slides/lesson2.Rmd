@@ -1,5 +1,5 @@
 ---
-title: "Reproducibility for the Rest of Us"
+title: "Reproducibility Course Logistics"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -20,18 +20,14 @@ knitr::opts_chunk$set(eval = FALSE,
 ```
 
 
-## Lesson 2: Course logistics
-
-In this lesson you will find more information about the skills and technology you will need to be successful in this course 
-
----
-
 ## Expectations and technical requirements
 
 * The course will be taught using [R](https://cran.r-project.org) in the [R Studio](https://www.rstudio.com) interactive development environment (IDE)
 
 * If you do not have administrative access to your computer, you can still follow along by either: 
+
     + Installing R and R Studio to a folder [somewhere you have access to edit and save](https://rpubs.com/tomhopper/windows_nonadmin_install) things rather than to the applications or programs folder
+    
     + Using an [R Studio Cloud](https://rstudio.cloud) free account  
 
 * The course is designed for those who have some experience with R code, especially [tidyverse](https://www.tidyverse.org) 
@@ -40,23 +36,26 @@ In this lesson you will find more information about the skills and technology yo
 
 ## Course overview
 
-* This course will cover coding strategies that will facilitate reproducible research including: 
+* This course will cover coding strategies and literate programming to facilitate reproducible research including: 
+
     + Using space wisely 
-    + Naming things in a meaningful and consistent way
-    + Using function arguments 
-    + Documenting the code with a prolog and annotation
-    + Using seed values for random processes 
-    + Writing functions for repeated tasks 
-    + Integrating code and text 
-    + Embedding data and R Markdown into knitted documents 
-    + Keeping R packages consistent over time 
     
----
-
-## Warning: Adopting new coding practices might result in...
-
-![](reading-code-i-wrote-last-year.png){fig-alt = "Person looking at paper confused, then looking up confused with the caption of reading code I wrote last year"}
-
+    + Naming things in a meaningful and consistent way 
+    
+    + Using function arguments 
+    
+    + Documenting the code with a prolog and annotation  
+    
+    + Using seed values for random processes 
+    
+    + Writing functions for repeated tasks 
+    
+    + Integrating code and text 
+    
+    + Embedding data and code files into documents 
+    
+    + Storing software versions 
+    
 ---
 
 ## Walk through of materials 
@@ -67,24 +66,26 @@ In this lesson you will find more information about the skills and technology yo
 
 * The data and codebook are from the [Teens and Tech Survey 2018](https://www.pewresearch.org/internet/dataset/teens-and-tech-survey-2018/) 
 
+---
+
+## List of files
+
 * The files are available in a ZIP file and include: 
-    + An R code filed called unformatted-r-code.R 
-    + A codebook file in a Word document called Pew Research Center 2019 Global Attitudes Survey WEB 
-    + Data in an SPSS file called Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav
-    + RProj file called participant-materials.RProj
-    + Text in an unformatted text file text-for-report.rtf
+
+    + An R code filed called `unformatted-r-code.R`
+    
+    + A codebook file in a Word document called `Pew Research Center 2019 Global Attitudes Survey WEB` 
+    
+    + Data in an SPSS file called `Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav`
+    
+    + RProj file called `participant-materials.RProj`
+    
+    + Text in an unformatted text file `text-for-report.rtf`
 
 ---
 
-## Walk through reproducible report
+## The final product
 
-
----
-
-class: inverse, center, middle
-
-## Let's do this!
-
-
-
-
+```{r echo = FALSE, eval = TRUE, fig.alt = "A confused man looking at a piece of paper", out.height=500, out.width=500, fig.align='center'}
+knitr::include_graphics("cake.jpeg")
+```

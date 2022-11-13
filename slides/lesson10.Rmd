@@ -1,5 +1,5 @@
 ---
-title: "Reproducibility for the Rest of Us"
+title: "Embedding Files to Improve Reproducibility"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -19,9 +19,18 @@ knitr::opts_chunk$set(eval = FALSE,
                       rows.print = 5)
 ```
 
-## Lesson 10: Embedding files to improve reproducibility
+## Reproducing results is a challenge
 
-* To reproduce analyses, the data and the code (or very detailed instructions for analysis) are the necessary components
+```{r echo = FALSE, eval = TRUE, fig.alt = "painting from Mr. Bean movie with face drawn in where painting was ruined", fig.align='center', out.width="50%"}
+knitr::include_graphics('mr-bean-reproduced-painting.jpeg')
+```
+
+
+---
+
+## Code and data files required
+
+* To reproduce analyses, the data and code or very detailed instructions for analysis are the necessary components
 
 * One way to include everything needed for reproducing analyses is embedding the data, code, and instructions in Quarto html rendered files
 
@@ -37,20 +46,23 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * The file, files, or directory is available by clicking on a link in the knit html file
 
+---
+
+background-image: url("separate-files-quarto.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: meme showing car making a hasty turn from code and data in separate files to code and data embedded in quarto"></span>
 
 ---
+
+class: inverse, center, middle
 
 ## Demo of the `xfun` package
 
 ```{r echo = FALSE}
-# demo the xfun package and .Rproj on the Quarto file
+# demo the xfun package in the Quarto file
 # suggest to the audience they could follow along
 ```
 
----
 
-## Resources
-
-* [xfun](https://cran.r-project.org/web/packages/xfun/index.html) package documentation
-* [Using RMarkdown to Create Reproducible Documents](https://www.youtube.com/watch?v=z2a80FnLFfE&t=98s) with Mine Çetinkaya-Rundel
     

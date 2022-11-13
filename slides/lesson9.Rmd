@@ -1,5 +1,5 @@
 ---
-title: "Reproducibility for the Rest of Us"
+title: "Literate Programming with Quarto"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -19,19 +19,66 @@ knitr::opts_chunk$set(eval = FALSE,
                       rows.print = 5)
 ```
 
-## Lesson 9: Integrating code and text
+## Does this look familiar?
 
-* Even with annotated well-formatted clear code including a prolog, reproducibility can be hindered by having copying and pasting output from R into other types of documents 
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of copying from R output to Word document", fig.align='center'}
+knitr::include_graphics('copy-r-to-word.jpg')
+```
 
-* There is a solution, though, literate programming
 
-* Literate programming tools allow you to combine code, output, and text in one document
+---
 
-* For R there are two options: R Markdown and Quarto
+background-image: url("reproducibility-paper-top.png")
+background-size: contain
 
-* Both tools are excellent for creating slides, documents, and web content
+<span role="img" aria-label="Slide background shows: title page from a study of reproducibility of results from six papers"></span>
 
-* Quarto is friendly to more coding languages and is in active development, while R Markdown is an older tool
+---
+
+background-image: url("switching-rows-data.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: clip from a paper where a table was printed with three rows mislabeled"></span>
+
+---
+
+background-image: url("errors-transcribing.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: clip from a paper where frequencies were printed in the percent column and vice versa"></span>
+
+---
+
+background-image: url("p-value-typos.png")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: clip from a paper where p-values were reported as p=.001 rather than p < .001"></span>
+
+---
+
+background-image: url("error-superscripts.png")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: clip from a paper where superscripts indicating statistical significance were incorrectly added"></span>
+
+---
+
+background-image: url("yikesyikesyikes.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: stylized text that says yikes yikes yikes"></span>
+
+---
+
+## How does Quarto help?
+
+* With Quarto you include the code, output, and the text in a single file, there is **no transcription**
+
+* Because there is no transcription, updates in output due to changes in data management or analysis are automatically included
+
+* Quarto has features that allow formatting similar to word processing programs
+
+* Quarto can render documents in many formats including Microsoft Word and PDF
 
 ---
 
@@ -39,7 +86,9 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * In RStudio, open the File menu, choose New File, and choose Quarto document for a document or Quarto presentation for slides
 
-![](quarto-file-create.jpg){fig.alt = "screenshot of menu in RStudio for creating Quarto documents"}
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of menu in RStudio for creating Quarto documents", fig.align='center'}
+knitr::include_graphics('quarto-file-create.jpg')
+```
 
 ---
 
@@ -51,17 +100,17 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * The code is written in **code chunks** that are denoted by three backticks to start and end the chunk
 
-![](r-code-chunk-screenshot.png){fig.alt = "screenshot of an R code chunk with no code in it"}
-
-* If the code produces output, it will appear just below the code chunk
-
-* When R Studio is left in the default style, the background is white where text is typed and light gray where code is typed
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of an R code chunk with no code in it", fig.align='center'}
+knitr::include_graphics('r-code-chunk-screenshot.png')
+```
 
 ---
 
 ## Example Quarto document screenshot
 
-![](quarto-screenshot-example.png){fig.alt = "screenshot of a Quarto document with some text, code, and a plot"}
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of a Quarto document with some text, code, and a plot", fig.align='center', out.width="50%"}
+knitr::include_graphics('quarto-screenshot-example.png')
+```
 
 ---
 
@@ -72,9 +121,16 @@ knitr::opts_chunk$set(eval = FALSE,
 * Section headers start with hashtags
 
     + The first heading will have one hashtag
+    
     + The first subheading will have two hashtags
+    
     + The second subheading will have three hashtags
+    
     + and so on...
+    
+---
+
+## More text formatting
     
 * To make type bold, add two asterisks `**` on each side of the word or section to be bolded
 
@@ -96,13 +152,19 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Use the Table menu to insert a table and choose the number of rows and columns
 
-![](insert-table-dialog.jpg){fig.alt = "screenshot of the visual editor table dialog box"}
-
 * Type information directly into the table, adding rows and columns as needed
 
 ---
 
-## Adding references in Quarto
+## Make a table
+
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of the visual editor table dialog box", fig.align='center', out.width="50%"}
+knitr::include_graphics('insert-table-dialog.jpg')
+```
+
+---
+
+## Citations in Quarto
 
 * The visual editor in Quarto also works to add citations which knit into in-text citations and a reference section in your document
 
@@ -110,24 +172,30 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * You can then type in citation information or search for documents to cite using the DOI or one of several search tools included in this feature
 
-![](insert-citation-screenshot.jpg){fig.alt = "screenshot of the insert citation dialog box in Quarto"}
+---
+
+## Inserting citations
+
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of the insert citation dialog box in Quarto", fig.align='center', out.width="70%"}
+knitr::include_graphics('insert-citation-screenshot.jpg')
+```
+
 
 ---
 
-## Chunk options in R Markdown
-
-* Typically documents we create for various audiences (e.g., reports, manuscripts, websites) do not contain statistical code, but do contain the output of code like tables and figures and various statistics
-
-* When integrating text, code, and output into a single Quarto file that can be rendered as html, pdf, or Microsoft Word, it is to have a way to hide the code and any R messages the code produces that are not actual output
-
-* Sometimes it might even be useful to hid certain output
+## Chunk options in Quarto
 
 * Showing or hiding the output, messages, and code can be done by using one of several arguments in the code chunks:
 
-    + `eval` is `TRUE` to run the code or `FALSE` to not run the code 
-    + `echo` is `TRUE` to show the code chunk or `FALSE` to hide the code chunk
-    + `warning` is `TRUE` to show R warnings or `FALSE` to hide warnings
-    + `message` is `TRUE` to show R messages or `FALSE` to hide messages
+    + `eval` is `true` to run the code or `false` to not run the code 
+    
+    + `echo` is `true` to show the code chunk or `false` to hide the code chunk
+    
+    + `warning` is `true` to show R warnings or `false` to hide warnings
+    
+    + `message` is `true` to show R messages or `false` to hide messages
+    
+    + `results` is `true` to show results or `false` to hide results
 
 ---
 
@@ -135,7 +203,10 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Chunk options are a special form of annotation within a chunk formatted with `#|` before the option and using a colon instead of equal sign, like this: `#| warning: false`
 
-![](chunk-options-quarto.jpg){fig.alt = "screenshot of the insert citation dialog box in Quarto"}
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of the insert citation dialog box in Quarto", fig.align='center', out.width="50%"}
+knitr::include_graphics('chunk-options-quarto.jpg')
+```
+
 
 ---
 
@@ -155,27 +226,33 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * A rendered Quarto file that is not linked to a template will be in the default format of a file created in the Microsoft Word program on your computer 
 
-* This default Microsoft Word format often uses blue sans-serif type for section headings and other settings that often are inconsistent with the formatting preferred by the document author
-
-* To create documents with specific fonts, font sizes, and uses of bold and other formats, a Microsoft Word template can be made
+* To create documents with specific fonts, font sizes, and uses of bold and other formats, create a Microsoft Word template
 
 ---
 
-## Making a Microsoft Word template
+## Creating a Microsoft Word template
 
 1) Render your draft document in R Markdown or Quarto to a Word document 
 
-1) Open the Word document and change the formatting to your preferred settings 
+2) Open the Word document and change the formatting to your preferred settings 
 
-1) Save the Word document with a name like `template.docx`
+3) Save the Word document with a name like `template.docx`
 
-1) Link the template in the YAML at the top of the document: 
-
-![](word-doc-template-quarto.jpg){fig.alt = "screenshot of YAML showing the addition of a Microsoft Word template"}
+4) Link the template in the YAML at the top of the document
 
 ---
 
-## Demo
+## YAML with Word template
+
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of YAML showing the addition of a Microsoft Word template", fig.align='center', out.width="50%"}
+knitr::include_graphics('word-doc-template-quarto.jpg')
+```
+
+---
+
+class: inverse, center, middle
+
+# Demo
 
 ```{r echo = FALSE}
 # demonstrate creating a new Quarto document and adding text and code from the provided files
@@ -193,14 +270,4 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Try Rendering the file to Microsoft Word, creating and adding a template, and Rendering again
 
----
-
-## Resources
-
-* [R Markdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-* [R Markdown](https://rmarkdown.rstudio.com) from R Studio
-* [R Markdown](https://r4ds.had.co.nz/r-markdown.html) from R for Data Science
-* [R Markdown](https://cran.r-project.org/web/packages/rmarkdown/index.html) package documentation
-* [Using RMarkdown to Create Reproducible Documents](https://www.youtube.com/watch?v=z2a80FnLFfE&t=98s) with Mine Çetinkaya-Rundel
-* [Quarto Documentation](https://quarto.org)
 

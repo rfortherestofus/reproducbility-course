@@ -1,5 +1,5 @@
 ---
-title: "Reproducibility for the Rest of Us"
+title: "Using Seed Values"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -19,23 +19,36 @@ knitr::opts_chunk$set(eval = FALSE,
                       rows.print = 5)
 ```
 
-## Lesson 7: Using seed values
+## A random problem for reproducibility
 
-* A seed value is a number that R uses as a starting point in a random process 
+* Some statistical approaches rely on random processes 
 
-* When random processes are called, like taking a random sample from a data set, R uses the current time value as a starting point, this is the default "seed"
+* Each time a random process is implemented, the results will differ due to the randomness
+
+* This means random processes will not be reproducible
+
+---
+
+background-image: url("commander-yiker.jpeg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Commander Riker from Star Trek looking surprised with the caption commander-yiker"></span>
+
+---
+
+## How a random processes works
+
+* R uses a seed value as a starting point in a random process 
+
+* When random processes are called, R uses the current time value as a starting point, this is the default "seed"
 
 * Because time changes continuously, R never uses the same default seed 
 
 * So, any random process in R, like taking a random sample from a larger data set, will start in a different place and end up with a different result
 
-* **Without choosing a seed value explicitly, random processes in R are not reproducible**
-
-* To set a seed value explicitly and make a random process in R reproducible, the function `set.seed()` can be used 
-
 ---
 
-## Random sample without set.seed()
+## Example of random sample 
 
 ```{r eval = TRUE}
 # open the palmer penguins data set
@@ -48,10 +61,21 @@ sample_n(tbl = penguins, size = 4)
 
 ```
 
+---
+
+## Second sample 
+
 ```{r eval = TRUE}
 # take a second sample with the same parameters
 sample_n(tbl = penguins, size = 4)
 ```
+
+---
+
+background-image: url("twitchy-eye.gif")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Character from Bob's burgers who has a twitchy eye"></span>
 
 ---
 
@@ -65,6 +89,10 @@ set.seed(seed = 42)
 sample_n(tbl = penguins, size = 4)
 ```
 
+---
+
+## Second sample after setting seed
+
 ```{r eval = TRUE}
 # take a second sample with the same parameters
 sample_n(tbl = penguins, size = 4)
@@ -73,6 +101,13 @@ sample_n(tbl = penguins, size = 4)
 * Oh no! That did not work! What happened?
 
 * The problem is that the second random sample was taken without setting the seed again
+
+---
+
+background-image: url("twitchy-eye.gif")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Character from Bob's burgers who has a twitchy eye"></span>
 
 ---
 
@@ -86,6 +121,10 @@ set.seed(seed = 42)
 sample_n(tbl = penguins, size = 4)
 ```
 
+---
+
+## Second sample with set.seed()
+
 ```{r eval = TRUE}
 # set the same seed
 set.seed(seed = 42)
@@ -96,27 +135,25 @@ sample_n(tbl = penguins, size = 4)
 
 ---
 
-## Comparing the two samples
+background-image: url("spiderman-samples.jpg")
+background-size: contain
 
-* The first sample produced the data set with the same four observations as the second sample
+<span role="img" aria-label="Slide background shows: Spiderman labeled sample 1 pointing at Spiderman labeled sample 2"></span>
 
-![](spiderman-samples.jpg){fig.alt = "Spiderman labeled sample 1 pointing at Spiderman labeled sample 2"}
+---
+
+background-image: url("great-success.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Borat with two thumbs up and caption of very-nice, great-success"></span>
 
 ---
 
 ## Exercise
 
-* Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code to for reproducible results
+* Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code  for reproducible results
 
 * Note that the `sample()` function used in these slides will be overwritten by the `sample()` function in the dplyr
 
----
 
-## Resources
-
-* [UC Business Analytics R Programming Guide](http://uc-r.github.io/setting_seed/)
-
-* [Random Number Generation R Help Documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html)
-
-* [How to Use Random Seeds Effectively](https://towardsdatascience.com/how-to-use-random-seeds-effectively-54a4cd855a79)
 

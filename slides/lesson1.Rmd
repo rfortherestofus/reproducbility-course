@@ -1,5 +1,5 @@
 ---
-title: "Reproducibility for the Rest of Us"
+title: "What is Reproducibility?"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -19,20 +19,24 @@ knitr::opts_chunk$set(eval = FALSE,
                       rows.print = 5)
 ```
 
+## Does this feel familiar?
 
-## What is reproducibility?
+```{r echo = FALSE, eval = TRUE, fig.alt = "A confused woman trying to read her code after eight months away", out.height=500, fig.align='center'}
+knitr::include_graphics("code-8mos.gif")
+```
 
-* Analyses are **reproducible** when analyzing the same data with the same methods produces the same results.
 
-* This is different from: 
-
-     + **Repeatability**, which is the ability to conduct the same analysis on the same data (regardless of results) 
-     
-     + **Replicability**, which is the ability collect new data, use the same methods, and get the same results (this is the gold standard!)
-     
 ---
 
-## How big is the reproducibility problem?
+## Or maybe this...
+
+```{r echo = FALSE, eval = TRUE, fig.alt = "A confused man looking at a piece of paper", out.height=500, out.width=500, fig.align='center'}
+knitr::include_graphics("reading-code-i-wrote-last-year.png")
+```
+
+---
+
+## You are not alone
 
 * Researchers could only replicate [21% of 67 drug studies](https://www.nature.com/articles/nrd3439-c1?linkId=33568131), [40% to 60% of psychology studies](https://doi.org/10.1126/science.aac4716), and [61% of economics studies](https://www.science.org/doi/abs/10.1126/science.aaf0918)
 
@@ -46,9 +50,23 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ---
 
-## What? 
+background-image: url("aaaaaa.jpg")
+background-size: contain
 
-![](things-that-make-you-go.jpg){fig-alt = "A disgusted looking toy alligator"}
+<span role="img" aria-label="Slide background shows: One possum yelling aaaaaa at another possum and the other possum yelling aaaaa back"></span>
+
+---
+
+## What is reproducibility?
+
+* Analyses are **reproducible** when analyzing the same data with the same methods produces the same results.
+
+* This is different from: 
+
+     + **Repeatability**, which is the ability to conduct the same analysis on the same data (regardless of results) 
+     
+     + **Replicability**, which is the ability collect new data, use the same methods, and get the same results (this is the gold standard!)
+     
 ---
 
 ## Why does it matter? 
@@ -59,7 +77,8 @@ knitr::opts_chunk$set(eval = FALSE,
 
 * Retracted research [continues to be cited](https://jamanetwork.com/journals/jama/article-abstract/209653) after retraction, influencing additional science
 
-![](aaaaaa.jpg){fig-alt = "One possom yelling aaaaaa with another yelling aaaaa also"}
+* Adopting reproducible research practices improves quality and reduces errors
+
 
 ---
 
@@ -69,44 +88,24 @@ knitr::opts_chunk$set(eval = FALSE,
 
     + Access to the data 
 
-    + The statistical code or very detailed methods instructions
+    + Annotated and well-formatted clear statistical code or very detailed instructions
     
 ---
 
-## How can Quarto help? 
+## Another tool for improving reproducibility 
 
-* [Quarto](https://quarto.org) is one of several tools for literate programming 
+* [Quarto](https://quarto.org) is one of several tools for **literate programming** 
 
-* Literate programming integrates text with statistical code and output in a single document
+* Literate programming tools integrate text with statistical code and output in a single document
 
-* Using literate programming and other reproducible research practices improves research quality and facilitates collaboration with others (including future you)
-
-![](replication-joke.JPG){fig-alt = "Tweet screenshot with joke text: if one statistician copies another statistician's joke on twitter are they performing a replication analysis"}
+* By reducing the need to copy results from one software to another, this improves reproducibility
 
 ---
 
-## What features of Quarto facilitate reproducibility?
+background-image: url("huge-if-true.jpg")
+background-size: contain
 
-* Integration of code and text and results
-
-* Markup options to format text with bullets, bold, underline, and other common styles 
-
-* Automated in-text citations and reference section
-
-* Option for html output format that can also embed the data and code
-
-* Highly flexible output formatting (e.g., html, Word, pdf)
-
-* Ability to create different document types (e.g., manuscript, slides)
-
-
----
-
-class: middle
-
-## Seriously?
-
-![](huge-if-true.JPG){fig-alt = "Large versions of the words if and true, huge if true"}
+<span role="img" aria-label="Slide background shows: Large versions of the words if and true, huge if true"></span>
 
 ---
 
