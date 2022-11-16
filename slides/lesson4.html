@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Naming All the Things</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+    <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Naming All the Things
+]
+
+---
+
+
+
+
+
+background-image: url("variable-names-baby-i.jpeg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Tweet screenshot that says found out my wife is due in December and I'm already sweating about what to name this kid. I have have a hard enough time deciding what to name my variables, how can I name a human? Poor little i;"&gt;&lt;/span&gt;
+
+---
+
+
+background-image: url("variable-names-drake.png")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Drake pushing away a poorly formatted variable name and then smiling at a well formatted variable name"&gt;&lt;/span&gt;
+
+---
+
+## Naming things
+
+--
+
+* During the process of writing code, we spend a lot of time naming things
+
+--
+
+* We name the data set we imported, the variables we recoded or created, the functions we developed, and other things
+
+--
+
+* It may feel easier while coding to name your data `dat` or `df` for data frame, a variable might easily become `var1` or, from the [Behavioral Risk Factor Surveillance Survey](https://www.cdc.gov/brfss/index.html) data set, `_RFHVDR`
+
+--
+
+* While this is an easy way to go in the moment, when you close that file and then re-open it two weeks later, you may not remember what is in `dat` or what `var1` was measuring 
+
+--
+
+* Instead of going the easy route for naming, taking the time to write names that are consistently formatted and meaningful will make your work more reproducible
+
+
+---
+
+background-image: url("hudson-code-descriptive-words.jpg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Screenshot of a tweet that says jumping back into code you wrote ages ago like 10% luck, 20% skill, 15% concentrated power of will, 5% pleasure, 50% pain, 100% wishing you used descriptive names."&gt;&lt;/span&gt;
+
+
+---
+
+## The goal when naming things 
+
+--
+
+* Meaningful to humans and easily read by machines
+
+---
+
+## Two parts to naming things
+
+--
+
+There are two things to consider in naming things:
+
+
+--
+
+1. The information in the name 
+   
+--
+ 
+1. The format of the name
+    
+---
+
+## Part 1: The information in the name
+
+--
+
+* Use meaningful words
+
+--
+
+* Avoid reserved words
+
+--
+
+  + The full list of reserved words is: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`, `...`
+
+--
+
+* Avoid common functions (e.g., `sum` or `mean`) as much as possible 
+
+---
+
+## Part 2: The format of the name
+    
+--
+
+* Consistent naming formats for naming data frames will also help you and any collaborators understand your code 
+
+--
+
+* There are many options to choose from when picking a format:
+
+    + `camelCase`
+    
+    + `dot.case`
+    
+    + `snake_case`
+    
+    + `UPPER_SNAKE_CASE`
+    
+    + `PascalCase`
+    
+    + `kebab-case`
+
+---
+
+## How do I choose?
+
+--
+
+* The [tidyverse styleguide](https://style.tidyverse.org) recommends certain formats be used for certain types of objects
+
+--
+
+* **Variable** and **function** names should use lowercase letters, numbers, and underscores
+
+    + `snake_case` works well
+
+--
+
+* For other types of objects, pick one of the options and use it consistently
+
+    + For example, file names could always use `kebab-case` while lists could always use `camelCase`
+
+---
+
+## The naming process
+
+--
+
+* For new data frames (imported or typed in), choose a meaningful name with a format you prefer for data frames
+
+--
+
+* For data imported from other sources, try using the `rename()` function that is part of the `tidyverse`
+
+--
+
+* As an example, if the units for the `speed` variable from the `cars` data frame were important, try renaming  
+
+
+```r
+# open the tidyverse
+library(package = "tidyverse")
+
+# rename the speed variable using snake_case
+# name the new data frame using camelCase
+carsRecoded &lt;- cars %&gt;% 
+  rename(miles_hour = speed)
+
+# check your work
+summary(carsRecoded)
+```
+
+---
+
+class: my-turn, center, middle
+
+# My Turn
+
+
+
+---
+
+class: inverse
+
+## Your Turn
+
+* Open the `unformatted-r-code.R` file and rename the rest of the variables using the suggested formatting 
+
+* Pay attention to the case of the letters (upper or lower) and use `snake_case` to separate any parts of the variable names
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -63,9 +63,7 @@ teenagers.]
 -   Exercise: fix spacing in provided R code file
 -   Resources:
     -   [The tidyverse style guide](https://style.tidyverse.org)
-    -   [The Art of Readable
-        Code](http://shop.oreilly.com/product/9780596802301.do) by
-        Boswell & Foucher
+    -   [The Art of Readable Code](http://shop.oreilly.com/product/9780596802301.do) by Boswell & Foucher
 
 ### Lesson 4: Naming things
 

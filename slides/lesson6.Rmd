@@ -1,0 +1,187 @@
+---
+title: "Prologs & Annotation"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+##  What are prologs & annotation?
+
+--
+
+* Prologs and annotation add text to your code file to help others understand the code
+
+--
+
+* A prolog describes the code purpose, the location of files, the file author, and anything else important to understanding why the code exists and how to use it
+
+--
+
+* Annotation, or commenting, is providing descriptions of the purpose or function of specific code within the code file 
+
+--
+
+* There are recommended ways of writing a prolog and annotation that will improve the quality and reproducibility of your work
+
+---
+
+## Prologs
+
+--
+
+* A prolog is information added (usually as comments or annotation) at the top of a code file to provide information about the contents of the file
+
+--
+
+* A prolog can include:
+
+    + Project name
+    
+    + Project purpose
+    
+    + Name and location of any data sets used in the code
+    
+    + Name of code author
+    
+    + Date the code was created
+    
+    + Date the code was last edited 
+
+
+---
+
+
+## Shorter prologs
+
+* For some projects, a short informal prolog is sufficient
+
+```{r}
+####################################
+# Project name
+# Project purpose
+# Code author name
+# Date last edited
+# Location of data used
+####################################
+
+```
+
+
+---
+
+## Longer prologs
+
+```{r}
+# PROLOG ################################################################
+# PROJECT:NAME OF PROJECT HERE #
+# PURPOSE:MAJOR POINT(S) OF WHAT I AM DOING WITH THE DATA HERE #
+# DIR:
+# DATA: 
+# list directory(-ies) for files here 
+# list data set file names/availability here, e.g., 
+# filename.correctextension 
+# somewebaddress.com 
+# AUTHOR NAME(S) 
+# AUTHOR:
+# CREATED: MONTH dd, YEAR 
+# LATEST:  MONTH dd, YEAR
+# NOTES:  indent all additional lines under each heading, #
+#         & use the hashmark bookends that appear #
+#         KEEP PURPOSE, AUTHOR, CREATED & LATEST ENTRIES IN UPPER CASE, #
+#         with appropriate case for DIR & DATA, lower case for notes #
+#         If multiple lines become too much, #
+#         simplify and write code book and readme. #
+# PROLOG         ######################################################
+```
+
+    
+---
+
+## Annotating your code 
+
+--
+
+* Annotation is a set of comments that explain something about your code 
+
+--
+
+* Annotation should give the reason for the code (not describe what it does)
+
+--
+
+* Comments are written within a code chunk or script file using a # at the beginning of the line
+
+--
+
+* Annotation can make work **less reproducible** if it is not updated
+
+--
+
+* Use annotation sparingly to clarify!
+
+---
+
+## Example of annotation
+
+* It is difficult to know, without running this code, what this figure will be:
+
+```{r eval = FALSE}
+globalData2019clean %>% 
+  ggplot(aes(x = AGE)) +
+  geom_histogram(color = "white") +
+  facet_wrap(facets = vars(country)) +
+  labs(x = "Age in years", 
+       caption = "Data source: Pew Research Center Global Attitudes Survey (2019)") +
+  theme_bw(base_size = 14, base_family = "serif")
+```
+
+
+--
+
+* A simple statement can help:
+
+```{r eval = FALSE}
+# distribution of age by country using histograms
+globalData2019clean %>% 
+  ggplot(aes(x = AGE)) +
+  geom_histogram(color = "white") +
+  facet_wrap(facets = vars(country)) +
+  labs(x = "Age in years", 
+       caption = "Data source: Pew Research Center Global Attitudes Survey (2019)") +
+  theme_bw(base_size = 14, base_family = "serif")
+```
+
+---
+
+class: my-turn, center, middle
+
+# Demo
+
+```{r echo = FALSE}
+# add some annotation and start a prolog in the participant file
+```
+
+---
+
+class: inverse
+
+## Your Turn
+
+* Open the participant `unformatted-r-code.R` file and complete the prolog
+
+* Add annotation where needed in the file
+
