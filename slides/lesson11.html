@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Managing R Package Versions for Reproducibility</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Managing R Package Versions for Reproducibility
 ]
 
 ---
@@ -22,33 +22,47 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 11: Keeping R package versions consistent over time
+## R packages change over time
+
+--
 
 * R packages are open source, created by the R community members rather than a single company
 
+--
+
 * R packages are often updated to fix bugs or add or refine features 
+
+--
 
 * Some updates to R packages can change how a function works or even whether a function exists 
 
+---
+
+## Package changes and reproducibility
+
+--
+
 * For an R document to be fully reproducible, the version of the package originally used might be needed
+
+--
 
 * The `renv` package is useful for creating a "lockfile" that stores the versions of R packages used in a document
 
-![](al-gore-democratic-party.gif){fig.alt = "Al Gore gif; Al Gore is famous for using lockbox as a metaphor during presidential debates"}
+---
+
+background-image: url("al-gore-democratic-party.gif")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Al Gore gif; Al Gore is famous for using lockbox as a metaphor during presidential debates"&gt;&lt;/span&gt;
 
 ---
 
-## Demo
+class: my-turn, center, middle
+
+# Demo
 
 
 
----
-
-## Resources:
-
-* [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html) by Kevin Ushey
-
-* [renv: Project Environments for R](https://www.rstudio.com/blog/renv-project-environments-for-r/)
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

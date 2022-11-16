@@ -38,13 +38,23 @@ knitr::include_graphics("reading-code-i-wrote-last-year.png")
 
 ## You are not alone
 
+--
+
 * Researchers could only replicate [21% of 67 drug studies](https://www.nature.com/articles/nrd3439-c1?linkId=33568131), [40% to 60% of psychology studies](https://doi.org/10.1126/science.aac4716), and [61% of economics studies](https://www.science.org/doi/abs/10.1126/science.aaf0918)
+
+--
 
 * In a sample of psychology papers, [6% of p-values were incorrectly reported](https://link.springer.com/article/10.3758/s13428-015-0664-2) 
 
+--
+
 * [11% of p-values](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-4-13) were incorrectly reported in a sample of medical papers
 
+--
+
 * [20 to 80% of papers](https://retractionwatch.com/2017/04/21/dear-journals-clean-act-regards-concerned-biostatistican/) in each of ten top scientific journals omitted or were unclear about sample sizes and up to 40% of papers in each journal did not include the type of statistical tests performed 
+
+--
 
 * Tables were mislabeled in [three of six reproduced public health studies](https://journals.lww.com/jphmp/Abstract/2019/03000/Examining_the_Reproducibility_of_6_Published.6.aspx)
 
@@ -59,23 +69,43 @@ background-size: contain
 
 ## What is reproducibility?
 
+--
+
 * Analyses are **reproducible** when analyzing the same data with the same methods produces the same results.
+
+--
 
 * This is different from: 
 
+--
+
      + **Repeatability**, which is the ability to conduct the same analysis on the same data (regardless of results) 
-     
+  
+--
+
      + **Replicability**, which is the ability collect new data, use the same methods, and get the same results (this is the gold standard!)
      
 ---
 
 ## Why does it matter? 
 
+
+--
+
 * [Errors and omissions](https://jme.bmj.com/content/37/4/249.short) can threaten the foundation of research that practitioners and policy-makers use to make decisions
+
+
+--
 
 * Poor quality research can also threaten human health with over [400,000 people enrolled and over 70,000 treated](https://jme.bmj.com/content/37/11/688.short) in medical studies later retracted
 
+
+--
+
 * Retracted research [continues to be cited](https://jamanetwork.com/journals/jama/article-abstract/209653) after retraction, influencing additional science
+
+
+--
 
 * Adopting reproducible research practices improves quality and reduces errors
 
@@ -84,21 +114,35 @@ background-size: contain
 
 ## How can I make my research reproducible? 
 
+--
+
 * Two things are needed to reproduce research:
 
-    + Access to the data 
+--
 
-    + Annotated and well-formatted clear statistical code or very detailed instructions
+  + Access to the data 
+
+--
+
+  + Annotated and well-formatted clear statistical code or very detailed instructions
     
 ---
 
 ## Another tool for improving reproducibility 
 
+--
+
 * [Quarto](https://quarto.org) is one of several tools for **literate programming** 
+
+--
 
 * Literate programming tools integrate text with statistical code and output in a single document
 
+--
+
 * By reducing the need to copy results from one software to another, this improves reproducibility
+
+--
 
 ---
 

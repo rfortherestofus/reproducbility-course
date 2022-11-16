@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Using Function Arguments</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Using Function Arguments
 ]
 
 ---
@@ -22,57 +22,117 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 5: Using function arguments
+## Types of function arguments
 
-* There are two main types of arguments in most functions
+--
 
-    + arguments to specify data 
-    
-    + arguments to specify details of computation  
-    
-* For example, the `mean()` function has three arguments 
+* There are two main types of arguments in most functions:
 
-    + a data argument of `x = `
-    
-    + two detail arguments of `trim = ` and `na.rm = `
-    
-* Another example, plot, has eight arguments
+--
 
-    + two data arguments of `x = ` for the x-axis variable and `y = ` for the y-axis variable
-    
-    + six detail arguments of `type = `, `main = `, `sub = `, `xlab = `, `ylab = `, and `asp =`
+  + arguments to specify data 
 
+--
+  
+  + arguments to specify details of computation  
+
+--
+    
+* For example, the `mean()` function has three arguments: 
+
+--
+
+  + a data argument of `x = `
+
+--
+  
+  + two detail arguments of `trim = ` and `na.rm = `
+    
+---
+
+## Arguments of the `plot()` function
+
+--
+    
+* `plot()` has eight arguments
+
+--
+
+  + two data arguments of `x =` for the x-axis variable and `y =` for the y-axis variable
+
+--
+
+  + six detail arguments of `type =`, `main =`, `sub =`, `xlab =`, `ylab =`, and `asp =`
+    
 ---
 
 ## Knowing the arguments
 
+--
+
 * The help documentation lists function arguments for each function 
+
+--
 
 * For example, the `ggplot()` function has a `data = ` argument, a `mapping = ` argument, and an `environment = ` argument
 
+--
+
 * The `ggplot()` function also has room for other arguments where you see `...` in the help documentation
+
+--
 
 * The `ggplot()` function also calls the function, `aes()`, which has its own arguments
 
-&lt;img src="ggplot-help-documentation.jpg" title="screenshot of help documentation for ggplot" alt="screenshot of help documentation for ggplot" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## ggplot help documentation
+
+&lt;img src="ggplot-help-documentation.jpg" alt="screenshot of help documentation for ggplot" width="1245" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
 ## The aes() arguments 
 
+--
+
 * The `aes()` function within the `ggplot()` function has arguments as well
+
+--
 
 * It has two named arguments, `x` to specify what should go on the x-axis of the plot, and `y` to specify what should go on the y-axis of the plot
 
-&lt;img src="aes-help-documentation.jpg" title="screenshot of help documentation for aes layer in ggplot" alt="screenshot of help documentation for aes layer in ggplot" width="50%" style="display: block; margin: auto;" /&gt;
+---
 
---- 
+## aes() help documentation
+
+&lt;img src="aes-help-documentation.jpg" alt="screenshot of help documentation for aes layer in ggplot" width="1251" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+background-image: url("onemillionrulesggplot.png")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Tweet screenshot showing a lot of histograms with a caption about remembering all 1 million rules for ggplot"&gt;&lt;/span&gt;
+
+---
 
 ## Positional use of arguments 
 
+--
+
 * Positional specification of the `ggplot()` arguments would be relying on the default order or **position** of the arguments
 
-* For example, positional use of arguments would be adding the data frame name and `x` and `y` arguments without using `data = `, `mapping =`, `x =`, and `y = `, like this:
+--
+
+* For example, positional use of arguments would be adding the data frame name and `x` and `y` arguments without using `data = `, `mapping =`, `x =`, and `y = `
+
+---
+
+## Example of positional arguments
 
 
 ```r
@@ -92,7 +152,11 @@ ggplot(cars, aes(speed, dist)) +
 
 * The argument for data and other well-known arguments are often not specified 
 
-* For `ggplot()` the `data = ` and `mapping = ` are often left out, but other arguments are used, like this: 
+* For `ggplot()` the `data =` and `mapping =` are often left out, but other arguments are used
+
+---
+
+## Example of partial arguments
 
 
 ```r
@@ -108,8 +172,6 @@ ggplot(cars, aes(x = speed, y = dist)) +
 
 * Exact use of arguments is specifying all of the arguments explicitly
 
-* For `ggplot()` it would look like this: 
-
 
 ```r
 # using partial specification to plot
@@ -120,15 +182,23 @@ ggplot(data = cars, mapping = aes(x = speed, y = dist)) +
 
 ---
 
-## The benefits of exact and partial vs. position
+## The benefits of arguments
+
+--
 
 * Exact and partial argument specification do not require you to remember the order of the arguments 
 
+--
+
 * When the argument is explicitly specified, the order does not matter
+
+--
 
 * When the argument is implied, as in positional specification, the order must be exactly right
 
-* As an example, consider flipping the arguments in the `aes()` for the `ggplot()` of cars using positional specification and then using partial specification where `x = ` and `y = ` are used
+---
+
+## Example of positional vs. partial 
 
 
 ```r
@@ -143,7 +213,7 @@ ggplot(cars, aes(y = dist, x = speed)) +
 
 ---
 
-class: inverse, center, middle
+class: my-turn, center, middle
 
 # Demo
 
@@ -152,17 +222,12 @@ class: inverse, center, middle
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * Open the participant `unformatted-r-code.R` file and add argument names where needed
 
----
-
-## Resources
-  
-* [The tidyverse style guide](https://style.tidyverse.org/functions.html)
-
-* [The Art of Readable Code](http://shop.oreilly.com/product/9780596802301.do) by Boswell &amp; Foucher
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

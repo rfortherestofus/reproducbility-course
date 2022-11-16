@@ -32,15 +32,21 @@ cars%>%ggplot(aes(x=speed,y=dist))+geom_point(color="purple")+theme_minimal()
 background-image: url("galileo.jpg")
 background-size: contain
 
-<span role="img" aria-label="Slide background shows: image of Galileoo with a quote that says I-just-need-some-space"></span>
+<span role="img" aria-label="Slide background shows: image of Galileo with a quote that says I-just-need-some-space"></span>
 
 ---
 
 ## Three different types of space
 
+--
+
 1) spacing before and after operators
 
+--
+
 2) line breaks or hard returns
+
+--
 
 3) indenting code
 
@@ -51,7 +57,7 @@ background-size: contain
 
 ```{r eval = FALSE}
 library(package = "tidyverse")
-cars %>%  ggplot(aes(x = speed, y = dist)) + geom_point(color = "purple") + theme_minimal()
+cars %>% ggplot(aes(x = speed, y = dist)) + geom_point(color = "purple") + theme_minimal()
 ```
 
 ---
@@ -71,11 +77,17 @@ theme_minimal()
 
 ## The 80 character rule
 
+--
+
 * Lines of code should be no longer than 80 characters (Shorter is even better!) 
+
+--
 
 * Counting your characters does not seem fun, keep to 80 characters or fewer with the help of R Studio:
 
-   + Click on the `Tools` menu 
+--
+
+  + Click on the `Tools` menu 
    
        + `Global Options` 
        
@@ -97,7 +109,7 @@ knitr::include_graphics('characters80-screenshot.jpg')
 
 ## Indenting code
 
-* Multiline code that is all part of a single function or process can use indentation to show it belongs together
+Multiline code that is all part of a single function or process can use indentation to show it belongs together
 
 ```{r eval = FALSE}
 cars %>% 
@@ -110,11 +122,19 @@ cars %>%
 
 ## When should I format my code?
 
+--
+
 * The best time to format your code is as you are coding
+
+--
 
 * The second best time is now
 
+--
+
 * This could induce a mild panic if you are looking at files with hundreds of lines of unformatted code
+
+--
 
 * Never fear, the `styler` package that can help
 
@@ -122,33 +142,60 @@ cars %>%
 
 ## The styler package for automatic formatting
 
+--
+
 If you write or receive code that is not well formatted, there are tools to save some time in formatting
+
+--
 
 * First, [styler](https://styler.r-lib.org) can style small amounts of code all the way to full documents
 
+--
+
 * To use styler, install it first, then choose one of the styler tools: 
 
-    + `style_text()` function to style small amounts of code
-    
-    + `style_file()` function to style specified R or Rmd files
-    
-    + `style_dir()` function to style all R and Rmd files in a directory
-    
-    + `style_pkg()` function to style the source files for R packages
-    
-    + RStudio Addin to apply these functions from a drop-down menu
+--
+
+  + `style_text()` function to style small amounts of code
+
+--
+  
+  + `style_file()` function to style specified R or Rmd files
+
+--
+  
+  + `style_dir()` function to style all R and Rmd files in a directory
+
+--
+  
+  + `style_pkg()` function to style the source files for R packages
+
+--
+  
+  + RStudio Addin to apply these functions from a drop-down menu
     
 ---
 
 ## Using styler
 
+--
+
+
 * Install the `styler` package
+
+--
 
 * Open your unformatted code file 
 
+--
+
 * Open the `tidyverse`
 
+--
+
 * Click the Addins menu in RStudio
+
+--
 
 * Choose `Style active file` from the menu
 
@@ -162,14 +209,16 @@ knitr::include_graphics('stylerforgif.gif')
 
 ---
 
-background-image: url("drakestyler.jpg")
+background-image: url("drake-styler.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: meme of Drake shunning poorly formatted code but happy about well-formatted code"></span>
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * Open the `unformatted-r-code.R` file and fix the formatting 
 

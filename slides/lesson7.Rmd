@@ -21,9 +21,15 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## A random problem for reproducibility
 
+--
+
 * Some statistical approaches rely on random processes 
 
+--
+
 * Each time a random process is implemented, the results will differ due to the randomness
+
+--
 
 * This means random processes will not be reproducible
 
@@ -38,11 +44,19 @@ background-size: contain
 
 ## How a random processes works
 
+--
+
 * R uses a seed value as a starting point in a random process 
+
+--
 
 * When random processes are called, R uses the current time value as a starting point, this is the default "seed"
 
+--
+
 * Because time changes continuously, R never uses the same default seed 
+
+--
 
 * So, any random process in R, like taking a random sample from a larger data set, will start in a different place and end up with a different result
 
@@ -58,7 +72,6 @@ library(package = "tidyverse")
 
 # sample the value of island variable from 4 observations
 sample_n(tbl = penguins, size = 4)
-
 ```
 
 ---
@@ -99,6 +112,8 @@ sample_n(tbl = penguins, size = 4)
 ```
 
 * Oh no! That did not work! What happened?
+
+--
 
 * The problem is that the second random sample was taken without setting the seed again
 
@@ -149,7 +164,9 @@ background-size: contain
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code  for reproducible results
 

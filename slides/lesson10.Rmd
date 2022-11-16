@@ -30,7 +30,11 @@ knitr::include_graphics('mr-bean-reproduced-painting.jpeg')
 
 ## Code and data files required
 
+--
+
 * To reproduce analyses, the data and code or very detailed instructions for analysis are the necessary components
+
+--
 
 * One way to include everything needed for reproducing analyses is embedding the data, code, and instructions in Quarto html rendered files
 
@@ -40,9 +44,15 @@ knitr::include_graphics('mr-bean-reproduced-painting.jpeg')
 
 ## Using the `xfun` package
 
+--
+
 * The `xfun` package can be used to attach a single file, multiple files, or a directory in a knit html document
 
+--
+
 * When multiple files are attached, they are compressed into a zip file, which is embedded
+
+--
 
 * The file, files, or directory is available by clicking on a link in the knit html file
 
@@ -55,9 +65,9 @@ background-size: contain
 
 ---
 
-class: inverse, center, middle
+class: my-turn, center, middle
 
-## Demo of the `xfun` package
+# Demo of the `xfun` package
 
 ```{r echo = FALSE}
 # demo the xfun package in the Quarto file

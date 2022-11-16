@@ -21,37 +21,63 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## Types of function arguments
 
+--
+
 * There are two main types of arguments in most functions:
 
-    + arguments to specify data 
-    
-    + arguments to specify details of computation  
+--
+
+  + arguments to specify data 
+
+--
+  
+  + arguments to specify details of computation  
+
+--
     
 * For example, the `mean()` function has three arguments: 
 
-    + a data argument of `x = `
-    
-    + two detail arguments of `trim = ` and `na.rm = `
+--
+
+  + a data argument of `x = `
+
+--
+  
+  + two detail arguments of `trim = ` and `na.rm = `
     
 ---
 
-## Arguments of the plot function
+## Arguments of the `plot()` function
+
+--
     
 * `plot()` has eight arguments
 
-    + two data arguments of `x =` for the x-axis variable and `y =` for the y-axis variable
-    
-    + six detail arguments of `type =`, `main =`, `sub =`, `xlab =`, `ylab =`, and `asp =`
+--
+
+  + two data arguments of `x =` for the x-axis variable and `y =` for the y-axis variable
+
+--
+
+  + six detail arguments of `type =`, `main =`, `sub =`, `xlab =`, `ylab =`, and `asp =`
     
 ---
 
 ## Knowing the arguments
 
+--
+
 * The help documentation lists function arguments for each function 
+
+--
 
 * For example, the `ggplot()` function has a `data = ` argument, a `mapping = ` argument, and an `environment = ` argument
 
+--
+
 * The `ggplot()` function also has room for other arguments where you see `...` in the help documentation
+
+--
 
 * The `ggplot()` function also calls the function, `aes()`, which has its own arguments
 
@@ -69,7 +95,11 @@ knitr::include_graphics('ggplot-help-documentation.jpg')
 
 ## The aes() arguments 
 
+--
+
 * The `aes()` function within the `ggplot()` function has arguments as well
+
+--
 
 * It has two named arguments, `x` to specify what should go on the x-axis of the plot, and `y` to specify what should go on the y-axis of the plot
 
@@ -93,7 +123,11 @@ background-size: contain
 
 ## Positional use of arguments 
 
+--
+
 * Positional specification of the `ggplot()` arguments would be relying on the default order or **position** of the arguments
+
+--
 
 * For example, positional use of arguments would be adding the data frame name and `x` and `y` arguments without using `data = `, `mapping =`, `x =`, and `y = `
 
@@ -148,15 +182,21 @@ ggplot(data = cars, mapping = aes(x = speed, y = dist)) +
 
 ## The benefits of arguments
 
+--
+
 * Exact and partial argument specification do not require you to remember the order of the arguments 
 
+--
+
 * When the argument is explicitly specified, the order does not matter
+
+--
 
 * When the argument is implied, as in positional specification, the order must be exactly right
 
 ---
 
-## Example of positional v. partial 
+## Example of positional vs. partial 
 
 ```{r}
 # using positional specification
@@ -170,7 +210,7 @@ ggplot(cars, aes(y = dist, x = speed)) +
 
 ---
 
-class: inverse, center, middle
+class: my-turn, center, middle
 
 # Demo
 
@@ -181,7 +221,9 @@ class: inverse, center, middle
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * Open the participant `unformatted-r-code.R` file and add argument names where needed
 

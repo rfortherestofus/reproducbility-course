@@ -21,11 +21,19 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ##  What are prologs & annotation?
 
+--
+
 * Prologs and annotation add text to your code file to help others understand the code
+
+--
 
 * A prolog describes the code purpose, the location of files, the file author, and anything else important to understanding why the code exists and how to use it
 
+--
+
 * Annotation, or commenting, is providing descriptions of the purpose or function of specific code within the code file 
+
+--
 
 * There are recommended ways of writing a prolog and annotation that will improve the quality and reproducibility of your work
 
@@ -33,7 +41,11 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## Prologs
 
+--
+
 * A prolog is information added (usually as comments or annotation) at the top of a code file to provide information about the contents of the file
+
+--
 
 * A prolog can include:
 
@@ -85,7 +97,7 @@ knitr::opts_chunk$set(eval = FALSE,
 # somewebaddress.com 
 # AUTHOR NAME(S) 
 # AUTHOR:
-# CREATED:MONTH dd, YEAR 
+# CREATED: MONTH dd, YEAR 
 # LATEST:  MONTH dd, YEAR
 # NOTES:  indent all additional lines under each heading, #
 #         & use the hashmark bookends that appear #
@@ -101,13 +113,23 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## Annotating your code 
 
+--
+
 * Annotation is a set of comments that explain something about your code 
+
+--
 
 * Annotation should give the reason for the code (not describe what it does)
 
+--
+
 * Comments are written within a code chunk or script file using a # at the beginning of the line
 
+--
+
 * Annotation can make work **less reproducible** if it is not updated
+
+--
 
 * Use annotation sparingly to clarify!
 
@@ -127,6 +149,9 @@ globalData2019clean %>%
   theme_bw(base_size = 14, base_family = "serif")
 ```
 
+
+--
+
 * A simple statement can help:
 
 ```{r eval = FALSE}
@@ -142,7 +167,7 @@ globalData2019clean %>%
 
 ---
 
-class: inverse, center, middle
+class: my-turn, center, middle
 
 # Demo
 
@@ -152,7 +177,9 @@ class: inverse, center, middle
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * Open the participant `unformatted-r-code.R` file and complete the prolog
 

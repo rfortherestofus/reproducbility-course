@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Embedding Files to Improve Reproducibility</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Embedding Files to Improve Reproducibility
 ]
 
 ---
@@ -22,9 +22,20 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 10: Embedding files to improve reproducibility
+## Reproducing results is a challenge
 
-* To reproduce analyses, the data and the code (or very detailed instructions for analysis) are the necessary components
+&lt;img src="mr-bean-reproduced-painting.jpeg" alt="painting from Mr. Bean movie with face drawn in where painting was ruined" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Code and data files required
+
+--
+
+* To reproduce analyses, the data and code or very detailed instructions for analysis are the necessary components
+
+--
 
 * One way to include everything needed for reproducing analyses is embedding the data, code, and instructions in Quarto html rendered files
 
@@ -34,24 +45,32 @@ class: center, middle, inverse, title-slide
 
 ## Using the `xfun` package
 
+--
+
 * The `xfun` package can be used to attach a single file, multiple files, or a directory in a knit html document
+
+--
 
 * When multiple files are attached, they are compressed into a zip file, which is embedded
 
+--
+
 * The file, files, or directory is available by clicking on a link in the knit html file
 
+---
+
+background-image: url("separate-files-quarto.jpg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: meme showing car making a hasty turn from code and data in separate files to code and data embedded in quarto"&gt;&lt;/span&gt;
 
 ---
 
-## Demo of the `xfun` package
+class: my-turn, center, middle
+
+# Demo of the `xfun` package
 
 
-
----
-
-## Resources
-
-* [xfun](https://cran.r-project.org/web/packages/xfun/index.html) package documentation
 
 
     

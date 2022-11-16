@@ -21,9 +21,15 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## R packages change over time
 
+--
+
 * R packages are open source, created by the R community members rather than a single company
 
+--
+
 * R packages are often updated to fix bugs or add or refine features 
+
+--
 
 * Some updates to R packages can change how a function works or even whether a function exists 
 
@@ -31,7 +37,11 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## Package changes and reproducibility
 
+--
+
 * For an R document to be fully reproducible, the version of the package originally used might be needed
+
+--
 
 * The `renv` package is useful for creating a "lockfile" that stores the versions of R packages used in a document
 
@@ -44,7 +54,7 @@ background-size: contain
 
 ---
 
-class: inverse, center, middle
+class: my-turn, center, middle
 
 # Demo
 

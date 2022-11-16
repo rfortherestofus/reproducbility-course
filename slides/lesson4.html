@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Naming All the Things</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Naming All the Things
 ]
 
 ---
@@ -22,94 +22,137 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 4: Naming things
+
+background-image: url("variable-names-baby-i.jpeg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Tweet screenshot that says found out my wife is due in December and I'm already sweating about what to name this kid. I have have a hard enough time deciding what to name my variables, how can I name a human? Poor little i;"&gt;&lt;/span&gt;
+
+---
+
+
+background-image: url("variable-names-drake.png")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Drake pushing away a poorly formatted variable name and then smiling at a well formatted variable name"&gt;&lt;/span&gt;
+
+---
+
+## Naming things
+
+--
 
 * During the process of writing code, we spend a lot of time naming things
 
+--
+
 * We name the data set we imported, the variables we recoded or created, the functions we developed, and other things
+
+--
 
 * It may feel easier while coding to name your data `dat` or `df` for data frame, a variable might easily become `var1` or, from the [Behavioral Risk Factor Surveillance Survey](https://www.cdc.gov/brfss/index.html) data set, `_RFHVDR`
 
+--
+
 * While this is an easy way to go in the moment, when you close that file and then re-open it two weeks later, you may not remember what is in `dat` or what `var1` was measuring 
+
+--
 
 * Instead of going the easy route for naming, taking the time to write names that are consistently formatted and meaningful will make your work more reproducible
 
----
-
-## Naming things well can take extra time
-
-&lt;img src="variable-names-baby-i.jpeg" title="Tweet screenshot that says found out my wife is due in December and I'm already sweating about what to name this kid. I have have a hard enough time deciding what to name my variables, how can I name a human? Poor little i;" alt="Tweet screenshot that says found out my wife is due in December and I'm already sweating about what to name this kid. I have have a hard enough time deciding what to name my variables, how can I name a human? Poor little i;" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## But it is worth it
+background-image: url("hudson-code-descriptive-words.jpg")
+background-size: contain
 
-&lt;img src="hudson-code-descriptive-words.jpg" title="Screenshot of a tweet that says jumping back into code you wrote ages ago like 10% luck, 20% skill, 15% concentrated power of will, 5% pleasure, 50% pain, 100% wishing you used descriptive names." alt="Screenshot of a tweet that says jumping back into code you wrote ages ago like 10% luck, 20% skill, 15% concentrated power of will, 5% pleasure, 50% pain, 100% wishing you used descriptive names." width="70%" style="display: block; margin: auto;" /&gt;
+&lt;span role="img" aria-label="Slide background shows: Screenshot of a tweet that says jumping back into code you wrote ages ago like 10% luck, 20% skill, 15% concentrated power of will, 5% pleasure, 50% pain, 100% wishing you used descriptive names."&gt;&lt;/span&gt;
 
 
 ---
 
 ## The goal when naming things 
 
-* Ideally the names you give to variables, data frames, functions, files, and other nameable things will be meaningful to humans and easily read by machines
+--
+
+* Meaningful to humans and easily read by machines
 
 ---
 
 ## Two parts to naming things
 
-* There are two things to consider in naming things:
+--
 
-    (1) The information in the name 
-    
-    (1) The format of the name
+There are two things to consider in naming things:
+
+
+--
+
+1. The information in the name 
+   
+--
+ 
+1. The format of the name
     
 ---
 
 ## Part 1: The information in the name
 
+--
+
 * Use meaningful words
 
-    + For example, instead of `var1` use `ageYears` to represent a variable that measures age in years
-    
-    + Some guidance suggests that **variable names should be nouns**, while **function names should be verbs**
-    
+--
+
 * Avoid reserved words
 
-    + There are some words in `R` (and most coding languages) that have specific meaning, these are **reserved words** and should not be used as names
-    
-    + The full list of reserved words is: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`, `...`
+--
 
-* Avoid common functions (e.g., `sum` or `mean`) and variables as much as possible 
+  + The full list of reserved words is: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`, `...`
+
+--
+
+* Avoid common functions (e.g., `sum` or `mean`) as much as possible 
 
 ---
 
 ## Part 2: The format of the name
     
-* In addition to making a name meaningful, having a consistent format for naming data frames, variables, functions, and other things will also help you and any collaborators understand your code 
+--
+
+* Consistent naming formats for naming data frames will also help you and any collaborators understand your code 
+
+--
 
 * There are many options to choose from when picking a format:
 
-            -   `camelCase`
-            
-            -   `dot.case`
-            
-            -   `snake_case`
-            
-            -   `UPPER_SNAKE_CASE`
-            
-            -   `PascalCase`
-            
-            -   `kebab-case`
+    + `camelCase`
+    
+    + `dot.case`
+    
+    + `snake_case`
+    
+    + `UPPER_SNAKE_CASE`
+    
+    + `PascalCase`
+    
+    + `kebab-case`
 
 ---
 
-## Which format is which?
+## How do I choose?
+
+--
 
 * The [tidyverse styleguide](https://style.tidyverse.org) recommends certain formats be used for certain types of objects
+
+--
 
 * **Variable** and **function** names should use lowercase letters, numbers, and underscores
 
     + `snake_case` works well
+
+--
 
 * For other types of objects, pick one of the options and use it consistently
 
@@ -119,11 +162,17 @@ class: center, middle, inverse, title-slide
 
 ## The naming process
 
-* For new data frames (imported or typed in), choose a meaningful name with a format you prefer for data frames and use that
+--
+
+* For new data frames (imported or typed in), choose a meaningful name with a format you prefer for data frames
+
+--
 
 * For data imported from other sources, try using the `rename()` function that is part of the `tidyverse`
 
-* As an example, if remembering the units for the `speed` variable from the `cars` data frame was important or would save time, try renaming it `miles_hour` 
+--
+
+* As an example, if the units for the `speed` variable from the `cars` data frame were important, try renaming  
 
 
 ```r
@@ -138,31 +187,27 @@ carsRecoded &lt;- cars %&gt;%
 # check your work
 summary(carsRecoded)
 ```
----
-
-class: inverse, center, middle
-
-# Demo
-
-
 
 ---
 
-## Exercise
+class: my-turn, center, middle
+
+# My Turn
+
+
+
+---
+
+class: inverse
+
+## Your Turn
 
 * Open the `unformatted-r-code.R` file and rename the rest of the variables using the suggested formatting 
 
 * Pay attention to the case of the letters (upper or lower) and use `snake_case` to separate any parts of the variable names
 
----
 
-## Resources
 
-* [The tidyverse style guide](https://style.tidyverse.org)
-
-* [The Art of Readable Code](http://shop.oreilly.com/product/9780596802301.do) by Boswell &amp; Foucher
-
-* [Statistics With R: Solving Problems Using Real-World Data](https://us.sagepub.com/en-us/nam/statistics-with-r/book253567) by Jenine K. Harris
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -51,13 +51,13 @@ background-size: contain
 # function to recode confidence items
 recode_conf_items <- function(item) {
   recode_factor(
-      item,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
+    item,
+    '1' = 'A lot of confidence',
+    '2' = 'Some confidence',
+    '3' = 'Not too much confidence',
+    '4' = 'No confidence at all',
+    '8' = NA_character_,
+    '9' = NA_character_
   )
 }
 ```
@@ -80,7 +80,6 @@ globalData2019clean <- globalData2019 %>%
   mutate(CONFID_ORBAN = recode_conf_items(CONFID_ORBAN)) %>% 
   mutate(CONFID_KIM = recode_conf_items(CONFID_KIM)) %>% 
   mutate(CONFID_SALMAN = recode_conf_items(CONFID_SALMAN)) 
-
 ```
 
 ---
@@ -89,21 +88,22 @@ globalData2019clean <- globalData2019 %>%
 
 * There are other ways to shorten lengthy redundant code 
 
-* One way in this situation would be to use a function like `mutate_at()` 
+* One way in this situation would be to use a function like `across()` 
 
 ```{r}
 # recoding all confidence variables to add labels
 globalData2019clean <- globalData2019 %>%
   zap_labels() %>% 
-  mutate_at(vars('CONFID_TRUMP', 
-                 'CONFID_XI',
-                 'CONFID_PUTIN',
-                 'CONFID_MERKEL',
-                 'CONFID_MACRON',
-                 'CONFID_ABE',
-                 'CONFID_MODI',
-                 'CONFID_ORBAN',
-                 'CONFID_SALMAN'), recode_conf_items)
+  mutate(across(.cols = c('CONFID_TRUMP', 
+                          'CONFID_XI',
+                          'CONFID_PUTIN',
+                          'CONFID_MERKEL',
+                          'CONFID_MACRON',
+                          'CONFID_ABE',
+                          'CONFID_MODI',
+                          'CONFID_ORBAN',
+                          'CONFID_SALMAN'), 
+                .fns = recode_conf_items))
 ```
 
 ---
@@ -116,12 +116,16 @@ globalData2019clean <- globalData2019 %>%
 # recoding all confidence variables to add labels
 globalData2019clean <- globalData2019 %>%
   zap_labels() %>% 
-  mutate_at(vars(matches('CONFID')), recode_conf_items)
+  mutate(across(.cols = matches('CONFID'), 
+                .fns = recode_conf_items))
 ```
+
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * In the `unformatted-r-code.R` file, replace the recoding of the `POLICY_` variables using a function to add labels and one of the mutate options shown here
 

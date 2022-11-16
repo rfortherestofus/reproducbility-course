@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Prologs &amp; Annotation</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Prologs &amp; Annotation
 ]
 
 ---
@@ -22,13 +22,21 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 6: Prolog &amp; Annotation
+##  What are prologs &amp; annotation?
 
-* Prologs and annotation are two ways of adding information to your code file that will help future you and any collaborators understand the code
+--
 
-* A prolog is text at the beginning of the file that describes the project purpose, the location of files, the file author, and anything else that is important to understanding why the file exists and how to use it
+* Prologs and annotation add text to your code file to help others understand the code
+
+--
+
+* A prolog describes the code purpose, the location of files, the file author, and anything else important to understanding why the code exists and how to use it
+
+--
 
 * Annotation, or commenting, is providing descriptions of the purpose or function of specific code within the code file 
+
+--
 
 * There are recommended ways of writing a prolog and annotation that will improve the quality and reproducibility of your work
 
@@ -36,20 +44,25 @@ class: center, middle, inverse, title-slide
 
 ## Prologs
 
+--
 
-* A prolog is some information added (usually as comments or annotation) at the top of a code file to provide information about the contents of the file
+* A prolog is information added (usually as comments or annotation) at the top of a code file to provide information about the contents of the file
+
+--
 
 * A prolog can include:
+
     + Project name
+    
     + Project purpose
+    
     + Name and location of any data sets used in the code
+    
     + Name of code author
+    
     + Date the code was created
+    
     + Date the code was last edited 
-
-* Sometimes there is a standard prolog that is used in an organization and this makes prolog creation straightforward
-
-* Other times you will create your own without a template
 
 
 ---
@@ -73,10 +86,7 @@ class: center, middle, inverse, title-slide
 
 ---
 
-
 ## Longer prologs
-
-* For other projects, a longer formal prolog is more useful
 
 
 ```r
@@ -91,7 +101,7 @@ class: center, middle, inverse, title-slide
 # somewebaddress.com 
 # AUTHOR NAME(S) 
 # AUTHOR:
-# CREATED:MONTH dd, YEAR 
+# CREATED: MONTH dd, YEAR 
 # LATEST:  MONTH dd, YEAR
 # NOTES:  indent all additional lines under each heading, #
 #         &amp; use the hashmark bookends that appear #
@@ -107,15 +117,23 @@ class: center, middle, inverse, title-slide
 
 ## Annotating your code 
 
+--
+
 * Annotation is a set of comments that explain something about your code 
 
-* When writing code, the goal is clear code that does not need much annotation to understand its purpose 
+--
 
-* Instead, annotation should give the reason for the code (not describe what it does)
+* Annotation should give the reason for the code (not describe what it does)
 
-* Comments are written within a code chunk or script file using a # at the beginning of the line to signify (to R) that the line is a comment and not code
+--
+
+* Comments are written within a code chunk or script file using a # at the beginning of the line
+
+--
 
 * Annotation can make work **less reproducible** if it is not updated
+
+--
 
 * Use annotation sparingly to clarify!
 
@@ -136,6 +154,9 @@ globalData2019clean %&gt;%
   theme_bw(base_size = 14, base_family = "serif")
 ```
 
+
+--
+
 * A simple statement can help:
 
 
@@ -152,27 +173,22 @@ globalData2019clean %&gt;%
 
 ---
 
-## Demo
+class: my-turn, center, middle
 
-add annotation and prolog to provided R code file
+# Demo
 
----
 
-## Exercise
-
-add annotation and prolog to provided R code file
 
 ---
 
-## Resources
+class: inverse
 
-* [The tidyverse style guide](https://style.tidyverse.org/functions.html)
+## Your Turn
 
-* [The Art of Readable Code](http://shop.oreilly.com/product/9780596802301.do) by Boswell &amp; Foucher
+* Open the participant `unformatted-r-code.R` file and complete the prolog
 
-* [coding2share Reproducibility Toolkit](https://coding2share.github.io/ReproducibilityToolkit/Mod3Code.html#intro)
+* Add annotation where needed in the file
 
-* [Statistics With R: Solving Problems Using Real-World Data](https://us.sagepub.com/en-us/nam/statistics-with-r/book253567) by Jenine K. Harris
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

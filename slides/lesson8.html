@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Writing Functions for Repeated Tasks</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Writing Functions for Repeated Tasks
 ]
 
 ---
@@ -22,170 +22,40 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 8: Writing functions for repeated tasks
+## Have you ever written code that looks like this? 
 
-* Often in data projects we need to do the same thing multiple times
 
-* For example, it is common to recode multiple variables in the same way or to create bar plots that show relationships between an outcome variable and several other measures
+&lt;img src="repeated-code.gif" alt="A gif showing repeated code for recoding variables" width="50%" style="display: block; margin: auto;" /&gt;
 
-* While cutting and pasting working code is one solution, this can reduce reproducibility because every change made will have to be made multiple times if the code is edited later
+---
 
-![](things-that-make-you-go.jpg)
+background-image: url("things-that-make-you-go.jpg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: A plastic alligator that looks disgusted"&gt;&lt;/span&gt;
 
 ---
 
 ## The Rule of Three
 
-* In coding there is a general rule called the Rule of Three that states any code you have to repeat three times should be made into a function
-
-![](add-function-everything-breaks.jpeg)
+* In coding there is a general rule called the Rule of Three that states any code you have to repeat three times should be made into a function 
 
 ---
 
-## Example of breaking the Rule of Three
-
-* The Pew Research Center 2019 Global Attitudes survey asked how much confidence the participants had in specific world leaders
-
-* Everyone was asked about five world leaders: Trump, Xi, Putin, Merkel, and Macron
-
-* Depending on the country a participant resides in, they might also be asked about Abe, Modi, Orbán, Jong-un, Salman
-
-* For each of these leaders, participants were given the following response options: A lot of confidence, Some confidence, Not too much confidence, No confidence at all, Don't know, Refused
-
-* To format these items for analysis, the following code might be added to data management
-
-
-```r
-globalData2019clean &lt;- globalData2019 %&gt;%
-  zap_labels() %&gt;% 
-  mutate(
-    CONFID_TRUMP = recode_factor(
-      CONFID_TRUMP,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_XI = recode_factor(
-      CONFID_XI,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_PUTIN = recode_factor(
-      CONFID_PUTIN,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_MERKEL = recode_factor(
-      CONFID_MERKEL,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_MACRON = recode_factor(
-      CONFID_MACRON,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_ABE = recode_factor(
-      CONFID_ABE,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_MODI = recode_factor(
-      CONFID_MODI,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_ORBAN = recode_factor(
-      CONFID_ORBAN,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_KIM = recode_factor(
-      CONFID_KIM,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  ) %&gt;%
-  mutate(
-    CONFID_SALMAN = recode_factor(
-      CONFID_SALMAN,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
-    )
-  )
-```
-
----
-
-## Or, write a function 
+## Write a function 
 
 
 ```r
 # function to recode confidence items
 recode_conf_items &lt;- function(item) {
   recode_factor(
-      item,
-      '1' = 'A lot of confidence',
-      '2' = 'Some confidence',
-      '3' = 'Not too much confidence',
-      '4' = 'No confidence at all',
-      '8' = NA_character_,
-      '9' = NA_character_
+    item,
+    '1' = 'A lot of confidence',
+    '2' = 'Some confidence',
+    '3' = 'Not too much confidence',
+    '4' = 'No confidence at all',
+    '8' = NA_character_,
+    '9' = NA_character_
   )
 }
 ```
@@ -217,22 +87,23 @@ globalData2019clean &lt;- globalData2019 %&gt;%
 
 * There are other ways to shorten lengthy redundant code 
 
-* One way in this situation would be to use the `mutate_at()` function
+* One way in this situation would be to use a function like `across()` 
 
 
 ```r
 # recoding all confidence variables to add labels
 globalData2019clean &lt;- globalData2019 %&gt;%
   zap_labels() %&gt;% 
-  mutate_at(vars('CONFID_TRUMP', 
-                 'CONFID_XI',
-                 'CONFID_PUTIN',
-                 'CONFID_MERKEL',
-                 'CONFID_MACRON',
-                 'CONFID_ABE',
-                 'CONFID_MODI',
-                 'CONFID_ORBAN',
-                 'CONFID_SALMAN'), recode_conf_items)
+  mutate(across(.cols = c('CONFID_TRUMP', 
+                          'CONFID_XI',
+                          'CONFID_PUTIN',
+                          'CONFID_MERKEL',
+                          'CONFID_MACRON',
+                          'CONFID_ABE',
+                          'CONFID_MODI',
+                          'CONFID_ORBAN',
+                          'CONFID_SALMAN'), 
+                .fns = recode_conf_items))
 ```
 
 ---
@@ -246,26 +117,21 @@ globalData2019clean &lt;- globalData2019 %&gt;%
 # recoding all confidence variables to add labels
 globalData2019clean &lt;- globalData2019 %&gt;%
   zap_labels() %&gt;% 
-  mutate_at(vars(matches('CONFID')), recode_conf_items)
+  mutate(across(.cols = matches('CONFID'), 
+                .fns = recode_conf_items))
 ```
 
----
-
-## Exercise
-
-write a function in the provided R code file
 
 ---
 
-## Resources:
+class: inverse
 
-* [Creating Functions](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/), Carpentry
+## Your Turn
 
-* [Functions](https://r4ds.had.co.nz/functions.html), R for Data Science
+* In the `unformatted-r-code.R` file, replace the recoding of the `POLICY_` variables using a function to add labels and one of the mutate options shown here
 
-* [Functions](https://adv-r.hadley.nz/functions.html), Advanced R by Hadley Wickham
-    
-    
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

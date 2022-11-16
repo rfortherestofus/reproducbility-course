@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Reproducibility for the Rest of Us</title>
+    <title>Using Seed Values</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Reproducibility for the Rest of Us
+# Using Seed Values
 ]
 
 ---
@@ -22,49 +22,90 @@ class: center, middle, inverse, title-slide
 
 
 
-## Lesson 7: Using seed values
+## A random problem for reproducibility
 
-* A seed value is a number that R uses as a starting point in a random process 
+--
 
-* When random processes are called, like taking a random sample from a data set, R uses the current time value as a starting point, this is the default "seed"
+* Some statistical approaches rely on random processes 
 
-* Because time changes continuously, R never uses the same default seed 
+--
 
-* So, any random processes in R, like taking a random sample from a larger data set, will start the process in a different place and end up with a different result
+* Each time a random process is implemented, the results will differ due to the randomness
 
-* **Without choosing a seed value explicitly, random processes in R are not reproducible**
+--
 
-* To set a seed value explicitly and make a random process in R reproducible, the function `set.seed()` can be used 
-
+* This means random processes will not be reproducible
 
 ---
 
-## Random sample without set.seed()
+background-image: url("commander-yiker.jpeg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Commander Riker from Star Trek looking surprised with the caption commander-yiker"&gt;&lt;/span&gt;
+
+---
+
+## How a random processes works
+
+--
+
+* R uses a seed value as a starting point in a random process 
+
+--
+
+* When random processes are called, R uses the current time value as a starting point, this is the default "seed"
+
+--
+
+* Because time changes continuously, R never uses the same default seed 
+
+--
+
+* So, any random process in R, like taking a random sample from a larger data set, will start in a different place and end up with a different result
+
+---
+
+## Example of random sample 
 
 
 ```r
 # open the palmer penguins data set
 library(package = "palmerpenguins")
+# open the tidyverse to get the sample_n function
+library(package = "tidyverse")
 
 # sample the value of island variable from 4 observations
-sample(x = penguins$island, size = 4)
+sample_n(tbl = penguins, size = 4)
 ```
 
-```
-## [1] Torgersen Biscoe    Torgersen Dream    
-## Levels: Biscoe Dream Torgersen
-```
+&lt;div data-pagedtable="false"&gt;
+  &lt;script data-pagedtable-source type="application/json"&gt;
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Torgersen","3":"46.0","4":"21.5","5":"194","6":"4200","7":"male","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"38.8","4":"17.6","5":"191","6":"3275","7":"female","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"53.4","4":"15.8","5":"219","6":"5500","7":"male","8":"2009"},{"1":"Chinstrap","2":"Dream","3":"49.8","4":"17.3","5":"198","6":"3675","7":"female","8":"2009"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+
+---
+
+## Second sample 
 
 
 ```r
 # take a second sample with the same parameters
-sample(x = penguins$island, size = 4)
+sample_n(tbl = penguins, size = 4)
 ```
 
-```
-## [1] Biscoe    Dream     Dream     Torgersen
-## Levels: Biscoe Dream Torgersen
-```
+&lt;div data-pagedtable="false"&gt;
+  &lt;script data-pagedtable-source type="application/json"&gt;
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Gentoo","2":"Biscoe","3":"42.0","4":"13.5","5":"210","6":"4150","7":"female","8":"2007"},{"1":"Gentoo","2":"Biscoe","3":"41.7","4":"14.7","5":"210","6":"4700","7":"female","8":"2009"},{"1":"Adelie","2":"Dream","3":"38.1","4":"17.6","5":"187","6":"3425","7":"female","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"46.4","4":"15.0","5":"216","6":"4700","7":"female","8":"2008"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+
+---
+
+background-image: url("twitchy-eye.gif")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Character from Bob's burgers who has a twitchy eye"&gt;&lt;/span&gt;
 
 ---
 
@@ -76,28 +117,43 @@ sample(x = penguins$island, size = 4)
 set.seed(seed = 42)
 
 # sample the value of island variable from 4 observations
-sample(x = penguins$island, size = 4)
+sample_n(tbl = penguins, size = 4)
 ```
 
-```
-## [1] Dream     Dream     Biscoe    Torgersen
-## Levels: Biscoe Dream Torgersen
-```
+&lt;div data-pagedtable="false"&gt;
+  &lt;script data-pagedtable-source type="application/json"&gt;
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Dream","3":"36.0","4":"17.9","5":"190","6":"3450","7":"female","8":"2007"},{"1":"Chinstrap","2":"Dream","3":"50.9","4":"17.9","5":"196","6":"3675","7":"female","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"46.1","4":"13.2","5":"211","6":"4500","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"45.8","4":"18.9","5":"197","6":"4150","7":"male","8":"2008"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+
+---
+
+## Second sample after setting seed
 
 
 ```r
 # take a second sample with the same parameters
-sample(x = penguins$island, size = 4)
+sample_n(tbl = penguins, size = 4)
 ```
 
-```
-## [1] Biscoe    Dream     Torgersen Dream    
-## Levels: Biscoe Dream Torgersen
-```
+&lt;div data-pagedtable="false"&gt;
+  &lt;script data-pagedtable-source type="application/json"&gt;
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Gentoo","2":"Biscoe","3":"48.6","4":"16.0","5":"230","6":"5800","7":"male","8":"2008"},{"1":"Adelie","2":"Dream","3":"39.0","4":"18.7","5":"185","6":"3650","7":"male","8":"2009"},{"1":"Adelie","2":"Torgersen","3":"37.7","4":"19.8","5":"198","6":"3500","7":"male","8":"2009"},{"1":"Adelie","2":"Dream","3":"36.0","4":"17.9","5":"190","6":"3450","7":"female","8":"2007"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
 
-* Oh no! That did not work! 
+* Oh no! That did not work! What happened?
+
+--
 
 * The problem is that the second random sample was taken without setting the seed again
+
+---
+
+background-image: url("twitchy-eye.gif")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Character from Bob's burgers who has a twitchy eye"&gt;&lt;/span&gt;
 
 ---
 
@@ -109,13 +165,18 @@ sample(x = penguins$island, size = 4)
 set.seed(seed = 42)
 
 # sample the value of island variable from 4 observations
-sample(x = penguins$island, size = 4)
+sample_n(tbl = penguins, size = 4)
 ```
 
-```
-## [1] Dream     Dream     Biscoe    Torgersen
-## Levels: Biscoe Dream Torgersen
-```
+&lt;div data-pagedtable="false"&gt;
+  &lt;script data-pagedtable-source type="application/json"&gt;
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Dream","3":"36.0","4":"17.9","5":"190","6":"3450","7":"female","8":"2007"},{"1":"Chinstrap","2":"Dream","3":"50.9","4":"17.9","5":"196","6":"3675","7":"female","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"46.1","4":"13.2","5":"211","6":"4500","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"45.8","4":"18.9","5":"197","6":"4150","7":"male","8":"2008"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+
+---
+
+## Second sample with set.seed()
 
 
 ```r
@@ -123,39 +184,40 @@ sample(x = penguins$island, size = 4)
 set.seed(seed = 42)
 
 # use the same sample code
-sample(x = penguins$island, size = 4)
+sample_n(tbl = penguins, size = 4)
 ```
 
-```
-## [1] Dream     Dream     Biscoe    Torgersen
-## Levels: Biscoe Dream Torgersen
-```
+&lt;div data-pagedtable="false"&gt;
+  &lt;script data-pagedtable-source type="application/json"&gt;
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Dream","3":"36.0","4":"17.9","5":"190","6":"3450","7":"female","8":"2007"},{"1":"Chinstrap","2":"Dream","3":"50.9","4":"17.9","5":"196","6":"3675","7":"female","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"46.1","4":"13.2","5":"211","6":"4500","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"45.8","4":"18.9","5":"197","6":"4150","7":"male","8":"2008"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
 
 ---
 
-## Comparing the two samples
+background-image: url("spiderman-samples.jpg")
+background-size: contain
 
-* The first sample produced the data set: Dream, Dream, Biscoe, Torgerson
-
-* The second sample produced the data set: Dream, Dream, Biscoe, Torgerson
-
-![](spiderman-samples.jpg)
+&lt;span role="img" aria-label="Slide background shows: Spiderman labeled sample 1 pointing at Spiderman labeled sample 2"&gt;&lt;/span&gt;
 
 ---
 
-## Exercise
+background-image: url("great-success.jpg")
+background-size: contain
 
-add seed value to provided R code file
+&lt;span role="img" aria-label="Slide background shows: Borat with two thumbs up and caption of very-nice, great-success"&gt;&lt;/span&gt;
 
 ---
 
-## Resources
+class: inverse
 
-* [UC Business Analytics R Programming Guide](http://uc-r.github.io/setting_seed/)
+## Your Turn
 
-* [Random Number Generation R Help Documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html)
+* Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code  for reproducible results
 
-* [How to Use Random Seeds Effectively](https://towardsdatascience.com/how-to-use-random-seeds-effectively-54a4cd855a79)
+* Note that the `sample()` function used in these slides will be overwritten by the `sample()` function in the dplyr
+
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

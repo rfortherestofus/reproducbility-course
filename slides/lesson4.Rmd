@@ -37,13 +37,23 @@ background-size: contain
 
 ## Naming things
 
+--
+
 * During the process of writing code, we spend a lot of time naming things
+
+--
 
 * We name the data set we imported, the variables we recoded or created, the functions we developed, and other things
 
+--
+
 * It may feel easier while coding to name your data `dat` or `df` for data frame, a variable might easily become `var1` or, from the [Behavioral Risk Factor Surveillance Survey](https://www.cdc.gov/brfss/index.html) data set, `_RFHVDR`
 
+--
+
 * While this is an easy way to go in the moment, when you close that file and then re-open it two weeks later, you may not remember what is in `dat` or what `var1` was measuring 
+
+--
 
 * Instead of going the easy route for naming, taking the time to write names that are consistently formatted and meaningful will make your work more reproducible
 
@@ -60,27 +70,44 @@ background-size: contain
 
 ## The goal when naming things 
 
+--
+
 * Meaningful to humans and easily read by machines
 
 ---
 
 ## Two parts to naming things
 
-* There are two things to consider in naming things:
+--
 
-    (1) The information in the name 
-    
-    (2) The format of the name
+There are two things to consider in naming things:
+
+
+--
+
+1. The information in the name 
+   
+--
+ 
+1. The format of the name
     
 ---
 
 ## Part 1: The information in the name
 
+--
+
 * Use meaningful words
+
+--
 
 * Avoid reserved words
 
-    + The full list of reserved words is: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`, `...`
+--
+
+  + The full list of reserved words is: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`, `...`
+
+--
 
 * Avoid common functions (e.g., `sum` or `mean`) as much as possible 
 
@@ -88,7 +115,11 @@ background-size: contain
 
 ## Part 2: The format of the name
     
+--
+
 * Consistent naming formats for naming data frames will also help you and any collaborators understand your code 
+
+--
 
 * There are many options to choose from when picking a format:
 
@@ -108,11 +139,17 @@ background-size: contain
 
 ## How do I choose?
 
+--
+
 * The [tidyverse styleguide](https://style.tidyverse.org) recommends certain formats be used for certain types of objects
+
+--
 
 * **Variable** and **function** names should use lowercase letters, numbers, and underscores
 
     + `snake_case` works well
+
+--
 
 * For other types of objects, pick one of the options and use it consistently
 
@@ -122,9 +159,15 @@ background-size: contain
 
 ## The naming process
 
+--
+
 * For new data frames (imported or typed in), choose a meaningful name with a format you prefer for data frames
 
+--
+
 * For data imported from other sources, try using the `rename()` function that is part of the `tidyverse`
+
+--
 
 * As an example, if the units for the `speed` variable from the `cars` data frame were important, try renaming  
 
@@ -140,11 +183,12 @@ carsRecoded <- cars %>%
 # check your work
 summary(carsRecoded)
 ```
+
 ---
 
-class: inverse, center, middle
+class: my-turn, center, middle
 
-## Demo
+# My Turn
 
 ```{r echo = FALSE}
 # go to unformatted-r-code.R file and change a couple of the variable names to snake_case all lower case
@@ -152,7 +196,9 @@ class: inverse, center, middle
 
 ---
 
-## Exercise
+class: inverse
+
+## Your Turn
 
 * Open the `unformatted-r-code.R` file and rename the rest of the variables using the suggested formatting 
 
