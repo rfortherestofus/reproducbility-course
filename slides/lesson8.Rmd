@@ -20,7 +20,7 @@ knitr::opts_chunk$set(eval = FALSE,
 library(haven)
 library(tidyverse)
 
-globalData2019<-read_spss("participant-materials/Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
+globalData2019<- read_spss("../participant-materials/Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
 ```
 
 ## Have you ever written code that looks like this? 
