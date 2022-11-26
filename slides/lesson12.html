@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Embedding Files to Improve Reproducibility</title>
+    <title>Managing R Package Versions for Reproducibility</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Embedding Files to Improve Reproducibility
+# Managing R Package Versions for Reproducibility
 ]
 
 ---
@@ -22,58 +22,48 @@ class: center, middle, inverse, title-slide
 
 
 
-## Reproducing results is a challenge
+## R packages change over time
 
-&lt;img src="mr-bean-reproduced-painting.jpeg" title="painting from Mr. Bean movie with face drawn in where painting was ruined" alt="painting from Mr. Bean movie with face drawn in where painting was ruined" width="50%" style="display: block; margin: auto;" /&gt;
+--
 
+* R packages are open source, created by the R community members rather than a single company
+
+--
+
+* R packages are often updated to fix bugs or add or refine features 
+
+--
+
+* Some updates to R packages can change how a function works or even whether a function exists 
 
 ---
 
-## Code and data files required
+## Package changes and reproducibility
 
 --
 
-* To reproduce analyses, the data and code or very detailed instructions for analysis are the necessary components
+* For an R document to be fully reproducible, the version of the package originally used might be needed
 
 --
 
-* One way to include everything needed for reproducing analyses is embedding the data, code, and instructions in Quarto html rendered files
-
-    + The `xfun` package is used to embed files
+* The `renv` package is useful for creating a "lockfile" that stores the versions of R packages used in a document
 
 ---
 
-## Using the `xfun` package
-
---
-
-* The `xfun` package can be used to attach a single file, multiple files, or a directory in a knit html document
-
---
-
-* When multiple files are attached, they are compressed into a zip file, which is embedded
-
---
-
-* The file, files, or directory is available by clicking on a link in the knit html file
-
----
-
-background-image: url("separate-files-quarto.jpg")
+background-image: url("al-gore-democratic-party.gif")
 background-size: contain
 
-&lt;span role="img" aria-label="Slide background shows: meme showing car making a hasty turn from code and data in separate files to code and data embedded in quarto"&gt;&lt;/span&gt;
+&lt;span role="img" aria-label="Slide background shows: Al Gore gif; Al Gore is famous for using lockbox as a metaphor during presidential debates"&gt;&lt;/span&gt;
 
 ---
 
 class: my-turn, center, middle
 
-# Demo of the `xfun` package
+# Demo
 
 
 
 
-    
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
