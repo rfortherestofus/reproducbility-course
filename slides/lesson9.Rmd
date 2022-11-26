@@ -280,57 +280,13 @@ knitr::include_graphics('chunk-options-quarto.jpg')
 
 ---
 
-## Rendering to Microsoft Word
-
---
-
-* Rendering to Microsoft Word requires an additional step for creating a well-formatted document 
-
---
-
-* A rendered Quarto file that is not linked to a template will be in the default format of a file created in the Microsoft Word program on your computer 
-
---
-
-* To create documents with specific fonts, font sizes, and uses of bold and other formats, create a Microsoft Word template
-
----
-
-## Creating a Microsoft Word template
-
---
-
-1) Render your draft document in R Markdown or Quarto to a Word document 
-
---
-
-2) Open the Word document and change the formatting to your preferred settings 
-
---
-
-3) Save the Word document with a name like `template.docx`
-
---
-
-4) Link the template in the YAML at the top of the document
-
----
-
-## YAML with Word template
-
-```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of YAML showing the addition of a Microsoft Word template", fig.align='center', out.width="50%"}
-knitr::include_graphics('word-doc-template-quarto.jpg')
-```
-
----
-
 class: my-turn, center, middle
 
 # Demo
 
 ```{r echo = FALSE}
-# demonstrate creating a new Quarto document and adding text and code from the provided files
-# demonstrate creating a Microsoft Word template and using it to knit to Word
+# demonstrate creating a new Quarto document from the provided template and adding text and code from the provided files
+# render to HTML
 ```
 
 
@@ -340,10 +296,9 @@ class: inverse
 
 ## Your Turn
 
-* Copy the demonstration to combine the text and code files and format for rendering
+* Copy the demonstration to combine the text and code files into the provided Quarto template (`quarto-template.qmd`) and format for rendering
 
 * Try rendering the file to html
 
-* Try rendering the file to Microsoft Word, creating and adding a template, and rendering again
 
 

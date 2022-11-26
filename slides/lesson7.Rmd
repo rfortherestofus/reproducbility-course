@@ -85,13 +85,6 @@ sample_n(tbl = penguins, size = 4)
 
 ---
 
-background-image: url("twitchy-eye.gif")
-background-size: contain
-
-<span role="img" aria-label="Slide background shows: Character from Bob's burgers who has a twitchy eye"></span>
-
----
-
 ## Random sample with `set.seed()`
 
 ```{r eval = TRUE}

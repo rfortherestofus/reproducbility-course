@@ -102,7 +102,7 @@ knitr::opts_chunk$set(
 
 --
 
-* The data and codebook are from the [Teens and Tech Survey 2018](https://www.pewresearch.org/internet/dataset/teens-and-tech-survey-2018/) 
+* The data and codebook are from the [2019 Global Attitudes and Trends](https://www.pewresearch.org/global/dataset/spring-2019-survey-data/) survey (you will need an account to open the link)
 
 ---
 
@@ -131,6 +131,10 @@ knitr::opts_chunk$set(
 --
 
   + Text in an unformatted text file `text-for-report.rtf`
+
+--
+
+  + A Quarto template file `quarto-template.qmd`
 
 ---
 

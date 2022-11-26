@@ -1,5 +1,5 @@
 ---
-title: "Embedding Files to Improve Reproducibility"
+title: "Microsoft Word Documents with Quarto"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -19,60 +19,68 @@ knitr::opts_chunk$set(eval = FALSE,
                       rows.print = 5)
 ```
 
-## Reproducing results is a challenge
+## Rendering Quarto to Microsoft Word
 
-```{r echo = FALSE, eval = TRUE, fig.alt = "painting from Mr. Bean movie with face drawn in where painting was ruined", fig.align='center', out.width="50%"}
-knitr::include_graphics('mr-bean-reproduced-painting.jpeg')
+--
+
+* Rendering to Microsoft Word requires an additional step for creating a well-formatted document 
+
+--
+
+* A rendered Quarto file that is not linked to a template will be in the default format of a file created in the Microsoft Word program on your computer 
+
+--
+
+* To create documents with specific fonts, font sizes, and uses of bold and other formats, create a Microsoft Word template
+
+---
+
+## Creating a Microsoft Word template
+
+--
+
+1) Render your draft document in R Markdown or Quarto to a Word document 
+
+--
+
+2) Open the Word document and change the formatting to your preferred settings 
+
+--
+
+3) Save the Word document with a name like `template.docx`
+
+--
+
+4) Link the template in the YAML at the top of the document
+
+---
+
+## YAML with Word template
+
+```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of YAML showing the addition of a Microsoft Word template", fig.align='center', out.width="50%"}
+knitr::include_graphics('word-doc-template-quarto.jpg')
 ```
-
-
----
-
-## Code and data files required
-
---
-
-* To reproduce analyses, the data and code or very detailed instructions for analysis are the necessary components
-
---
-
-* One way to include everything needed for reproducing analyses is embedding the data, code, and instructions in Quarto html rendered files
-
-    + The `xfun` package is used to embed files
-
----
-
-## Using the `xfun` package
-
---
-
-* The `xfun` package can be used to attach a single file, multiple files, or a directory in a knit html document
-
---
-
-* When multiple files are attached, they are compressed into a zip file, which is embedded
-
---
-
-* The file, files, or directory is available by clicking on a link in the knit html file
-
----
-
-background-image: url("separate-files-quarto.jpg")
-background-size: contain
-
-<span role="img" aria-label="Slide background shows: meme showing car making a hasty turn from code and data in separate files to code and data embedded in quarto"></span>
 
 ---
 
 class: my-turn, center, middle
 
-# Demo of the `xfun` package
+# Demo
 
 ```{r echo = FALSE}
-# demo the xfun package in the Quarto file
-# suggest to the audience they could follow along
+# demonstrate creating a Microsoft Word template and using it to knit to Word
 ```
 
+---
 
-    
+class: inverse
+
+## Your Turn
+
+* Render the file to Microsoft Word 
+
+* Create and add a template
+
+* Render again
+
+

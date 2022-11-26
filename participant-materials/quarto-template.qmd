@@ -1,0 +1,65 @@
+---
+title: "Reproducible Quarto Document Template for HTML"
+author: "Jenine K. Harris, PhD"
+format: html
+fig-cap-location: top
+theme: pulse
+---
+
+```{r}
+# CHANGE THE AUTHOR NAME TO YOUR NAME IN THE YAML ABOVE
+# ADD THE LIBRARY FUNCTION CODES TO THIS CODE CHUNK AFTER THE 
+# CHUNK OPTIONS
+#| echo: false
+#| warning: false
+#| message: false
+
+```
+
+ADD THE INTRODUCTION HEADING AND TEXT HERE
+
+ADD THE DATA HEADING AND TEXT HERE
+
+```{r}
+# ADD THE DATA MANAGEMENT CODE HERE
+#| echo: false
+#| results: false
+
+```
+
+ADD THE RESULTS HEADING AND TEXT HERE
+
+```{r}
+# ADD THE TABLE LABELS AND CODE TO THIS CODE CHUNK
+#| echo: false
+#| message: false
+#| tbl-colwidths: [60,20,20]
+#| label: tbl-descrip
+#| tbl-cap: Overall optimism about culture, wealth gap, jobs, and education for 10,000 survey participants in 5 countries.
+
+```
+
+ADD THE PARAGRAPHS EXPLAINING THE TABLE AND FIGURES HERE
+
+```{r}
+# ADD THE FIGURES CODE TO THIS CODE CHUNK
+#| echo: false
+#| fig-cap: Percent of participants in each country who feel optimistic about the future of their country culture, wealth gap, jobs, and education. 
+#| fig-subcap: 
+#|  - "Our country’s culture"
+#|  - "Our country’s education system"
+#|  - "The availability of well-paying jobs"
+#|  - "Reducing gap between rich and poor"
+#| label: fig-countries
+#| layout-ncol: 2
+
+
+```
+
+ADD THE CONCLUSION HEADER AND TEXT HERE
+
+ADD REFERENCES TO THE CONCLUSION TEXT
+
+WHEN FINISHED, DELETE ALL THE ALL-CAPS INSTRUCTIONS BEFORE RENDERING THE DOCUMENT
+
+##### References
