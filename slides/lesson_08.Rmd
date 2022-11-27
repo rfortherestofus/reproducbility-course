@@ -1,0 +1,133 @@
+---
+title: "Writing Functions for Repeated Tasks"
+output:
+  xaringan::moon_reader:
+    css: ["css/style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+library(haven)
+library(tidyverse)
+
+globalData2019<- read_spss("../participant-materials/Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
+```
+
+## Have you ever written code that looks like this? 
+
+
+```{r echo = FALSE, eval = TRUE, fig.alt = "A gif showing repeated code for recoding variables", fig.align='center', out.width = "50%"}
+knitr::include_graphics('images/repeated-code.gif')
+```
+
+---
+
+background-image: url("images/things-that-make-you-go.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: A plastic alligator that looks disgusted"></span>
+
+---
+
+## The Rule of Three
+
+* In coding there is a general rule called the Rule of Three that states any code you have to repeat three times should be made into a function 
+
+---
+
+## Write a function 
+
+```{r eval = TRUE}
+# function to recode confidence items
+recode_conf_items <- function(item) {
+  recode_factor(
+    item,
+    '1' = 'A lot of confidence',
+    '2' = 'Some confidence',
+    '3' = 'Not too much confidence',
+    '4' = 'No confidence at all',
+    '8' = NA_character_,
+    '9' = NA_character_
+  )
+}
+```
+
+---
+
+## Then apply it
+
+```{r}
+# recoding all confidence variables to add labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate(CONFID_TRUMP = recode_conf_items(CONFID_TRUMP)) %>% 
+  mutate(CONFID_XI = recode_conf_items(CONFID_XI)) %>% 
+  mutate(CONFID_PUTIN = recode_conf_items(CONFID_PUTIN)) %>% 
+  mutate(CONFID_MERKEL = recode_conf_items(CONFID_MERKEL)) %>% 
+  mutate(CONFID_MACRON = recode_conf_items(CONFID_MACRON)) %>% 
+  mutate(CONFID_ABE = recode_conf_items(CONFID_ABE)) %>% 
+  mutate(CONFID_MODI = recode_conf_items(CONFID_MODI)) %>% 
+  mutate(CONFID_ORBAN = recode_conf_items(CONFID_ORBAN)) %>% 
+  mutate(CONFID_KIM = recode_conf_items(CONFID_KIM)) %>% 
+  mutate(CONFID_SALMAN = recode_conf_items(CONFID_SALMAN)) 
+```
+
+---
+
+## That is still a lot of redundant code!
+
+* There are other ways to shorten lengthy redundant code 
+
+* One way in this situation would be to use a function like `across()` 
+
+```{r}
+# recoding all confidence variables to add labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate(across(.cols = c('CONFID_TRUMP', 
+                          'CONFID_XI',
+                          'CONFID_PUTIN',
+                          'CONFID_MERKEL',
+                          'CONFID_MACRON',
+                          'CONFID_ABE',
+                          'CONFID_MODI',
+                          'CONFID_ORBAN',
+                          'CONFID_SALMAN'), 
+                .fns = recode_conf_items))
+```
+
+---
+
+## Can it be even shorter?
+
+* The `matches()` function can identify variables with redundant names, eliminating the need to list all the variable names separately
+
+```{r}
+# recoding all confidence variables to add labels
+globalData2019clean <- globalData2019 %>%
+  zap_labels() %>% 
+  mutate(across(.cols = matches('CONFID'), 
+                .fns = recode_conf_items))
+```
+
+
+---
+
+class: inverse
+
+## Your Turn
+
+* In the `unformatted-r-code.R` file, replace the recoding of the `FUTURE_` variables using a function to add labels and one of the mutate options shown here
+
+
+

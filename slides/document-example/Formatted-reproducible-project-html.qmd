@@ -1,0 +1,200 @@
+---
+title: "Reproducible Document for HTML"
+author: "Jenine K. Harris, PhD"
+format: html
+fig-cap-location: top
+bibliography: references.bib
+theme: pulse
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(package = "tidyverse")
+library(package = "haven")
+library(package = "finalfit")
+library(package = "table1")
+library(package = "knitr")
+library(package = "xfun")
+```
+
+#### Introduction
+
+Using the **2019 [Global Attitudes & Trends](https://www.pewresearch.org/global/datasets/)** data set from the [**Pew Research Center**](https://www.pewresearch.org) website, this short report summarizes participant responses to the research question, *Thinking about the future of (survey country), please tell me whether you feel generally optimistic or generally pessimistic about the following
+areas.* The areas of interest are culture, the gap between rich and poor, the availability of well-paying jobs, and the country's educational system.
+
+```{r}
+#| echo: false
+xfun::embed_files(c("Formatted-reproducible-project.qmd","Pew Research Center 2019 Global Attitudes Survey WEB .docx","Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav","references.bib"), text = "Download data, code, codebook, and text here.")
+
+```
+
+#### Data
+
+To answer the research question, I used a subset of the data that included survey participants responses to the following questions: *Thinking about the future of (survey country), please tell me whether you feel generally optimistic or generally pessimistic about the following areas.*
+
+The areas of interest are culture, the gap between rich and poor, the availability of well-paying jobs, and the country's educational system. The areas of interest are culture, the gap between rich and poor, the availability of well-paying jobs, and the country's educational system. The areas of interest are culture, the gap between rich and poor, the availability of well-paying jobs, and the country's educational system.
+
+```{r}
+#| echo: false
+#| results: false
+# import 2019 Pew data on global policy attitudes
+globalData2019 <- read_spss("Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
+
+# sample 10,000 from the Pew file
+set.seed(seed = 42)
+globalData2019samp <- sample_n(globalData2019, 10000)
+
+# function to recode policy items
+recode_future_items <- function(item) {
+  recode_factor(item,
+      '1' = 'Optimistic',
+      '2' = 'Pessimistic',
+      '3' = 'Neither',
+      '8' = NA_character_,
+      '9' = NA_character_)
+}
+
+# select countries of interest and clean data
+globalData2019clean <- globalData2019samp %>%
+  filter(country %in% c(3, 15, 19, 21, 34)) %>%
+  select(country, FUTURE_CULTURE, FUTURE_GAP, 
+         FUTURE_JOBS, FUTURE_EDUCATION) %>%
+  zap_labels() %>%
+  mutate_at(vars(matches('FUTURE')), recode_future_items) %>% 
+  mutate(country = recode_factor(country, 
+                                 "3" = "Brazil", 
+                                 "15" = "Japan", 
+                                 "19" = "Mexico", 
+                                 "21" = "Nigeria", 
+                                 "34" = "United States")) 
+
+# check recoding
+summary(object = globalData2019clean)
+```
+
+#### Results
+
+Maybe add some text here pointing out anything interesting or unexpected in the table that the readers might want to view more closely. Also explain anything in the table that suggests how the research question might eventually be answered.
+
+```{r}
+#| echo: false
+#| message: false
+#| tbl-colwidths: [60,20,20]
+#| label: tbl-descrip
+#| tbl-cap: Overall optimism about culture, wealth gap, jobs, and education for 10,000 survey participants in 5 countries.
+
+# add labels for table
+label(globalData2019clean$country) <- 
+  "Country"
+label(globalData2019clean$FUTURE_CULTURE) <- 
+  "Our country’s culture"
+label(globalData2019clean$FUTURE_GAP) <- 
+  "Reducing the gap between the rich and poor"
+label(globalData2019clean$FUTURE_JOBS) <- 
+  "The availability of well-paying jobs"
+label(globalData2019clean$FUTURE_EDUCATION) <- 
+  "Our country’s education system"
+
+# create table
+tableDesc <- globalData2019clean %>% 
+  summary_factorlist(explanatory = c("FUTURE_CULTURE",
+                                     "FUTURE_GAP",
+                                     "FUTURE_EDUCATION", 
+                                     "FUTURE_JOBS"))
+kable(tableDesc, 
+      row.names = FALSE, 
+      col.names = c("Area", "Optimism", "n (%)"), 
+      align = c("l", "l", "r"),
+      hline = 'linesep')
+```
+
+You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items.
+
+You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items.
+
+You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items. You might include some text about how optimism differs by country (Figure 1) and point out some of the important differences between countries on different items.
+
+```{r}
+#| echo: false
+#| fig-cap: Percent of participants in each country who feel optimistic about the future of their country culture, wealth gap, jobs, and education. 
+#| fig-subcap: 
+#|  - "Our country’s culture"
+#|  - "Our country’s education system"
+#|  - "The availability of well-paying jobs"
+#|  - "Reducing gap between rich and poor"
+#| label: fig-countries
+#| layout-ncol: 2
+
+globalData2019clean %>%
+  drop_na(FUTURE_CULTURE) %>%
+  group_by(country, FUTURE_CULTURE) %>%
+  count() %>%
+  group_by(country) %>%
+  mutate(percent = 100 * (n / sum(n))) %>% 
+  drop_na() %>% 
+  filter(FUTURE_CULTURE == "Optimistic") %>% 
+  ggplot() +
+  geom_col(aes(x = country, y = percent, fill = country)) +
+  labs(x = "Country", y = "Percent optimistic within country") +
+  scale_fill_brewer(palette = "Set2", guide = NULL) +
+  ylim(0, 100) +
+  theme_minimal(base_size = 16) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10))  
+
+globalData2019clean %>%
+  drop_na(FUTURE_EDUCATION) %>%
+  group_by(country, FUTURE_EDUCATION) %>%
+  count() %>%
+  group_by(country) %>%
+  mutate(percent = 100 * (n / sum(n))) %>% 
+  drop_na() %>% 
+  filter(FUTURE_EDUCATION == "Optimistic") %>% 
+  ggplot() +
+  geom_col(aes(x = country, y = percent, fill = country)) +
+  labs(x = "Country", y = "Percent optimistic within country") +
+  scale_fill_brewer(palette = "Set2", guide = NULL) +
+  ylim(0, 100) +
+  theme_minimal(base_size = 16) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10))  
+
+globalData2019clean %>%
+  drop_na(FUTURE_JOBS) %>%
+  group_by(country, FUTURE_JOBS) %>%
+  count() %>%
+  group_by(country) %>%
+  mutate(percent = 100 * (n / sum(n))) %>% 
+  drop_na() %>% 
+  filter(FUTURE_JOBS == "Optimistic") %>% 
+  ggplot() +
+  geom_col(aes(x = country, y = percent, fill = country)) +
+  labs(x = "Country", y = "Percent optimistic within country") +
+  scale_fill_brewer(palette = "Set2", guide = NULL) +
+  ylim(0, 100) +
+  theme_minimal(base_size = 16) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) 
+
+globalData2019clean %>%
+  drop_na(FUTURE_GAP) %>%
+  group_by(country, FUTURE_GAP) %>%
+  count() %>%
+  group_by(country) %>%
+  mutate(percent = 100 * (n / sum(n))) %>% 
+  drop_na() %>% 
+  filter(FUTURE_GAP == "Optimistic") %>% 
+  ggplot() +
+  geom_col(aes(x = country, y = percent, fill = country)) +
+  labs(x = "Country", y = "Percent optimistic within country") +
+  scale_fill_brewer(palette = "Set2", guide = NULL) +
+  ylim(0, 100) +
+  theme_minimal(base_size = 16) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10))
+
+```
+
+#### Conclusion
+
+After all the methods and results, you would usually summarize the key points from your analyses and add some context by connecting your results to published evidence relevant to your work. Here is where you might add citations. More discussion of the findings that cite some of the literature in this area [@Kolencik2022]. Another statement about the literature and citing it goes here [@Sully2022].
+
+##### References

@@ -1,0 +1,208 @@
+---
+title: "Naming All the Things"
+output:
+  xaringan::moon_reader:
+    css: ["css/style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+
+background-image: url("images/variable-names-baby-i.jpeg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Tweet screenshot that says found out my wife is due in December and I'm already sweating about what to name this kid. I have have a hard enough time deciding what to name my variables, how can I name a human? Poor little i;"></span>
+
+---
+
+
+background-image: url("images/variable-names-drake.png")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Drake pushing away a poorly formatted variable name and then smiling at a well formatted variable name"></span>
+
+---
+
+## Naming things
+
+--
+
+* During the process of writing code, we spend a lot of time naming things
+
+--
+
+* We name the data set we imported, the variables we recoded or created, the functions we developed, and other things
+
+--
+
+* It may feel easier while coding to name your data `dat` or `df` for data frame, a variable might easily become `var1` or, from the [Behavioral Risk Factor Surveillance Survey](https://www.cdc.gov/brfss/index.html) data set, `_RFHVDR`
+
+--
+
+* While this is an easy way to go in the moment, when you close that file and then re-open it two weeks later, you may not remember what is in `dat` or what `var1` was measuring 
+
+--
+
+* Instead of going the easy route for naming, taking the time to write names that are consistently formatted and meaningful will make your work more reproducible
+
+
+---
+
+background-image: url("images/hudson-code-descriptive-words.jpg")
+background-size: contain
+
+<span role="img" aria-label="Slide background shows: Screenshot of a tweet that says jumping back into code you wrote ages ago like 10% luck, 20% skill, 15% concentrated power of will, 5% pleasure, 50% pain, 100% wishing you used descriptive names."></span>
+
+
+---
+
+## The goal when naming things 
+
+--
+
+* Meaningful to humans and easily read by machines
+
+---
+
+## Two parts to naming things
+
+--
+
+There are two things to consider in naming things:
+
+
+--
+
+1. The information in the name 
+   
+--
+ 
+1. The format of the name
+    
+---
+
+## Part 1: The information in the name
+
+--
+
+* Use meaningful words
+
+--
+
+* Avoid reserved words
+
+--
+
+  + The full list of reserved words is: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`, `...`
+
+--
+
+* Avoid common functions (e.g., `sum` or `mean`) as much as possible 
+
+---
+
+## Part 2: The format of the name
+    
+--
+
+* Consistent naming formats for naming data frames will also help you and any collaborators understand your code 
+
+--
+
+* There are many options to choose from when picking a format:
+
+    + `camelCase`
+    
+    + `dot.case`
+    
+    + `snake_case`
+    
+    + `UPPER_SNAKE_CASE`
+    
+    + `PascalCase`
+    
+    + `kebab-case`
+
+---
+
+## How do I choose?
+
+--
+
+* The [tidyverse styleguide](https://style.tidyverse.org) recommends certain formats be used for certain types of objects
+
+--
+
+* **Variable** and **function** names should use lowercase letters, numbers, and underscores
+
+    + `snake_case` works well
+
+--
+
+* For other types of objects, pick one of the options and use it consistently
+
+    + For example, file names could always use `kebab-case` while lists could always use `camelCase`
+
+---
+
+## The naming process
+
+--
+
+* For new data frames (imported or typed in), choose a meaningful name with a format you prefer for data frames
+
+--
+
+* For data imported from other sources, try using the `rename()` function that is part of the `tidyverse`
+
+--
+
+* As an example, if the units for the `speed` variable from the `cars` data frame were important, try renaming  
+
+```{r}
+# open the tidyverse
+library(package = "tidyverse")
+
+# rename the speed variable using snake_case
+# name the new data frame using camelCase
+carsRecoded <- cars %>% 
+  rename(miles_hour = speed)
+
+# check your work
+summary(carsRecoded)
+```
+
+---
+
+class: my-turn, center, middle
+
+# My Turn
+
+```{r echo = FALSE}
+# go to unformatted-r-code.R file and change a couple of the variable names to snake_case all lower case
+```
+
+---
+
+class: inverse
+
+## Your Turn
+
+* Open the `unformatted-r-code.R` file and rename the rest of the variables using the suggested formatting 
+
+* Pay attention to the case of the letters (upper or lower) and use `snake_case` to separate any parts of the variable names
+
+
+

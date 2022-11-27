@@ -1,29 +1,22 @@
 library(tidyverse)
 library(haven)
-library(table1)
 library(finalfit)
+library(table1)
 library(knitr)
-library(xfun)
 globalData2019<-read_spss("Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
-globalData2019samp <- sample_n(globalData2019,10000)
-globalData2019clean<-globalData2019samp%>%filter(country%in%c(3,5,15,19,21,22,27,34))%>%select(country,POLICY_CLIMATE,POLICY_THEWALL,POLICY_NUCLEAR,POLICY_IMMIG,POLICY_TARIFF,POLICY_NORTHKOREA)%>%zap_labels()%>%
-mutate(country=recode_factor(country,'3'='Brazil','5'='Canada','15'='Japan','19'='Mexico','21'='Nigeria','22'='Phillippines','27'='South Korea','34'='United States'))%>%
-mutate(POLICY_CLIMATE=recode_factor(POLICY_CLIMATE,'1'='Approve','2'='Disapprove','8'=NA_character_,'9'=NA_character_))%>%mutate(POLICY_THEWALL=recode_factor(POLICY_THEWALL,'1'='Approve','2'='Disapprove','8'=NA_character_,'9'=NA_character_))%>%mutate(POLICY_NUCLEAR=recode_factor(POLICY_NUCLEAR,'1'='Approve','2'='Disapprove','8'=NA_character_,'9'=NA_character_))%>%
-mutate(POLICY_IMMIG=recode_factor(POLICY_IMMIG,'1'='Approve','2'='Disapprove','8'=NA_character_,'9'=NA_character_))%>%mutate(POLICY_TARIFF=recode_factor(POLICY_TARIFF,'1'='Approve','2'='Disapprove','8'=NA_character_,'9'=NA_character_))%>%
-mutate(POLICY_NORTHKOREA=recode_factor(POLICY_NORTHKOREA,'1'='Approve','2'='Disapprove','8'=NA_character_,'9'=NA_character_))
-summary(globalData2019clean)
+globalData2019samp<-sample_n(globalData2019,10000)
+globalData2019clean<-globalData2019samp%>%filter(country%in%c(3,15,19,21,34))%>%select(country,FUTURE_CULTURE,FUTURE_GAP,FUTURE_JOBS,FUTURE_EDUCATION)%>%zap_labels()%>%mutate(country=recode_factor(country,'3'='Brazil','15'='Japan','19'='Mexico','21'='Nigeria','34'='United States'))%>%
+mutate(FUTURE_CULTURE=recode_factor(FUTURE_CULTURE,'1'='Optimistic','2'='Pessimistic','3'='Neither','8'=NA_character_,'9'=NA_character_))%>%mutate(FUTURE_EDUCATION=recode_factor(FUTURE_EDUCATION,'1'='Optimistic','2'='Pessimistic','3'='Neither','8'=NA_character_,'9'=NA_character_))%>%
+mutate(FUTURE_GAP=recode_factor(FUTURE_GAP,'1'='Optimistic','2'='Pessimistic','3'='Neither','8'=NA_character_,'9'=NA_character_))%>%mutate(FUTURE_JOBS=recode_factor(FUTURE_JOBS,'1'='Optimistic','2'='Pessimistic','3'='Neither','8'=NA_character_,'9'=NA_character_))
+summary(object = globalData2019clean)
 label(globalData2019clean$country)<-"Country"
-label(globalData2019clean$POLICY_CLIMATE)<-"U.S. withdrawal from international climate change agreements" 
-label(globalData2019clean$POLICY_THEWALL)<-"Building a wall on the border between the U.S. and Mexico"
-label(globalData2019clean$POLICY_NUCLEAR)<-"U.S. withdrawal from the Iran nuclear weapons agreement" 
-label(globalData2019clean$POLICY_IMMIG)<-"Allowing fewer immigrants into the U.S."
-label(globalData2019clean$POLICY_TARIFF)<-"U.S. increasing tariffs or fees on imported goods from other countries" 
-label(globalData2019clean$POLICY_NORTHKOREA)<-"U.S. negotiations with North Korean leader Kim Jong-Un about the country’s nuclear weapons program"
-tableDesc<-globalData2019clean%>%summary_factorlist(explanatory=c('POLICY_CLIMATE','POLICY_THEWALL','POLICY_NUCLEAR','POLICY_IMMIG','POLICY_TARIFF','POLICY_NORTHKOREA'))
-kable(tableDesc,row.names=FALSE,col.names=c("Characteristic","Category","n (%)"),align=c("l","l","r"))
-globalData2019clean%>%drop_na(POLICY_CLIMATE)%>%group_by(country,POLICY_CLIMATE)%>%count()%>%group_by(country)%>%mutate(percCo=100*(n/sum(n)))%>%ggplot(aes(x=country,y=percCo,fill=POLICY_CLIMATE))+geom_col(position="dodge")+coord_flip()+labs(caption="Data source: Pew Research Center Global Attitudes Survey (2019)",fill="U.S. withdrawal\nclimate\nagreement",y="Percent in Country")+theme_bw(base_size=10,base_family="serif")
-globalData2019clean%>%drop_na(POLICY_THEWALL)%>%group_by(country,POLICY_THEWALL)%>%count()%>%group_by(country)%>%mutate(percCo=100*(n/sum(n)))%>%ggplot(aes(x=country,y=percCo,fill=POLICY_THEWALL))+geom_col(position="dodge")+coord_flip()+labs(caption="Data source: Pew Research Center Global Attitudes Survey (2019)",fill="Build wall\nbetween U.S.\nand Mexico",y="Percent in Country")+theme_bw(base_size=10,base_family="serif")
-globalData2019clean%>%drop_na(POLICY_NUCLEAR)%>%group_by(country,POLICY_NUCLEAR)%>%count()%>%group_by(country)%>%mutate(percCo=100*(n/sum(n)))%>%ggplot(aes(x=country,y=percCo,fill=POLICY_NUCLEAR))+geom_col(position="dodge")+coord_flip()+labs(caption="Data source: Pew Research Center Global Attitudes Survey (2019)",fill="U.S. withdrawal\nIran\nagreement",y="Percent in Country")+theme_bw(base_size=10,base_family="serif")
-globalData2019clean%>%drop_na(POLICY_IMMIG)%>%group_by(country,POLICY_IMMIG)%>%count()%>%group_by(country)%>%mutate(percCo=100*(n/sum(n)))%>%ggplot(aes(x=country,y=percCo,fill=POLICY_IMMIG))+geom_col(position="dodge")+coord_flip()+labs(caption="Data source: Pew Research Center Global Attitudes Survey (2019)",fill="Fewer immigrants\nallowed in U.S.",y="Percent in Country")+theme_bw(base_size=10,base_family="serif")
-globalData2019clean%>%drop_na(POLICY_TARIFF)%>%group_by(country,POLICY_TARIFF)%>%count()%>%group_by(country)%>%mutate(percCo=100*(n/sum(n)))%>%ggplot(aes(x=country,y=percCo,fill=POLICY_TARIFF))+geom_col(position="dodge")+coord_flip()+labs(caption="Data source: Pew Research Center Global Attitudes Survey (2019)",fill="U.S. increase\nimport tarrifs",y="Percent in Country")+theme_bw(base_size=10,base_family="serif")
-globalData2019clean%>%drop_na(POLICY_NORTHKOREA)%>%group_by(country,POLICY_NORTHKOREA)%>%count()%>%group_by(country)%>%mutate(percCo=100*(n/sum(n)))%>%ggplot(aes(x=country,y=percCo,fill=POLICY_NORTHKOREA))+geom_col(position="dodge")+coord_flip()+labs(caption="Data source: Pew Research Center Global Attitudes Survey (2019)",fill="U.S. nuclear\nnegotiations with\nNorth Korea",y="Percent in Country")+theme_bw(base_size=10,base_family="serif")
+label(globalData2019clean$FUTURE_CULTURE)<-"Our country’s culture"
+label(globalData2019clean$FUTURE_GAP)<-"Reducing the gap between the rich and poor"
+label(globalData2019clean$FUTURE_JOBS)<-"The availability of well-paying jobs"
+label(globalData2019clean$FUTURE_EDUCATION)<-"Our country’s education system"
+tableDesc<-globalData2019clean%>%summary_factorlist(explanatory=c("FUTURE_CULTURE","FUTURE_GAP","FUTURE_EDUCATION","FUTURE_JOBS"))
+kable(tableDesc,row.names=FALSE,col.names=c("Area","Optimism","n (%)"),align = c("l", "l", "r"),hline = 'linesep')
+globalData2019clean%>%drop_na(FUTURE_CULTURE)%>%group_by(country,FUTURE_CULTURE)%>%count()%>%group_by(country)%>%mutate(percent=100*(n/sum(n)))%>%drop_na()%>%filter(FUTURE_CULTURE=="Optimistic")%>%ggplot()+geom_col(aes(x = country, y = percent, fill = country))+labs(x="Country",y="Percent optimistic within country")+scale_fill_brewer(palette="Set2",guide=NULL)+ylim(0,100)+theme_minimal(base_size=16)+scale_x_discrete(labels=function(x) str_wrap(x,width=10))  
+globalData2019clean%>%drop_na(FUTURE_EDUCATION)%>%group_by(country,FUTURE_EDUCATION)%>%count()%>%group_by(country)%>%mutate(percent=100*(n/sum(n)))%>%drop_na()%>%filter(FUTURE_EDUCATION=="Optimistic")%>%ggplot()+geom_col(aes(x = country, y = percent, fill = country))+labs(x="Country",y="Percent optimistic within country")+scale_fill_brewer(palette="Set2",guide=NULL)+ylim(0,100)+theme_minimal(base_size=16)+scale_x_discrete(labels=function(x) str_wrap(x,width=10))  
+globalData2019clean%>%drop_na(FUTURE_JOBS)%>%group_by(country,FUTURE_JOBS)%>%count()%>%group_by(country)%>%mutate(percent=100*(n/sum(n)))%>%drop_na()%>%filter(FUTURE_JOBS=="Optimistic")%>%ggplot()+geom_col(aes(x = country, y = percent, fill = country))+labs(x="Country",y="Percent optimistic within country")+scale_fill_brewer(palette="Set2",guide=NULL)+ylim(0,100)+theme_minimal(base_size=16)+scale_x_discrete(labels=function(x) str_wrap(x,width=10))  
+globalData2019clean%>%drop_na(FUTURE_GAP)%>%group_by(country,FUTURE_GAP)%>%count()%>%group_by(country)%>%mutate(percent=100*(n/sum(n)))%>%drop_na()%>%filter(FUTURE_GAP=="Optimistic")%>%ggplot()+geom_col(aes(x = country, y = percent, fill = country))+labs(x="Country",y="Percent optimistic within country")+scale_fill_brewer(palette="Set2",guide=NULL)+ylim(0,100)+theme_minimal(base_size=16)+scale_x_discrete(labels=function(x) str_wrap(x,width=10))  
