@@ -2,7 +2,7 @@
 title: "Writing Functions for Repeated Tasks"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -27,12 +27,12 @@ globalData2019<- read_spss("../participant-materials/Pew Research Center Global 
 
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "A gif showing repeated code for recoding variables", fig.align='center', out.width = "50%"}
-knitr::include_graphics('repeated-code.gif')
+knitr::include_graphics('images/repeated-code.gif')
 ```
 
 ---
 
-background-image: url("things-that-make-you-go.jpg")
+background-image: url("images/things-that-make-you-go.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: A plastic alligator that looks disgusted"></span>

@@ -2,7 +2,7 @@
 title: "Using Function Arguments"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -87,7 +87,7 @@ knitr::opts_chunk$set(eval = FALSE,
 ## ggplot help documentation
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of help documentation for ggplot", fig.align='center'}
-knitr::include_graphics('ggplot-help-documentation.jpg')
+knitr::include_graphics('images/ggplot-help-documentation.jpg')
 ```
 
 
@@ -108,13 +108,13 @@ knitr::include_graphics('ggplot-help-documentation.jpg')
 ## aes() help documentation
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of help documentation for aes layer in ggplot", fig.align='center'}
-knitr::include_graphics('aes-help-documentation.jpg')
+knitr::include_graphics('images/aes-help-documentation.jpg')
 ```
 
 
 ---
 
-background-image: url("onemillionrulesggplot.png")
+background-image: url("images/onemillionrulesggplot.png")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Tweet screenshot showing a lot of histograms with a caption about remembering all 1 million rules for ggplot"></span>

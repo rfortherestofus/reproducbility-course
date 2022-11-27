@@ -2,7 +2,7 @@
 title: "Literate Programming with Quarto"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -22,48 +22,48 @@ knitr::opts_chunk$set(eval = FALSE,
 ## Does this look familiar?
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of copying from R output to Word document", fig.align='center'}
-knitr::include_graphics('copy-r-to-word.jpg')
+knitr::include_graphics('images/copy-r-to-word.jpg')
 ```
 
 
 ---
 
-background-image: url("reproducibility-paper-top.png")
+background-image: url("images/reproducibility-paper-top.png")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: title page from a study of reproducibility of results from six papers"></span>
 
 ---
 
-background-image: url("switching-rows-data.jpg")
+background-image: url("images/switching-rows-data.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: clip from a paper where a table was printed with three rows mislabeled"></span>
 
 ---
 
-background-image: url("errors-transcribing.jpg")
+background-image: url("images/errors-transcribing.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: clip from a paper where frequencies were printed in the percent column and vice versa"></span>
 
 ---
 
-background-image: url("p-value-typos.png")
+background-image: url("images/p-value-typos.png")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: clip from a paper where p-values were reported as p=.001 rather than p < .001"></span>
 
 ---
 
-background-image: url("error-superscripts.png")
+background-image: url("images/error-superscripts.png")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: clip from a paper where superscripts indicating statistical significance were incorrectly added"></span>
 
 ---
 
-background-image: url("yikesyikesyikes.jpg")
+background-image: url("images/yikesyikesyikes.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: stylized text that says yikes yikes yikes"></span>
@@ -97,7 +97,7 @@ background-size: contain
 * In RStudio, open the File menu, choose New File, and choose Quarto document for a document or Quarto presentation for slides
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of menu in RStudio for creating Quarto documents", fig.align='center'}
-knitr::include_graphics('quarto-file-create.jpg')
+knitr::include_graphics('images/quarto-file-create.jpg')
 ```
 
 ---
@@ -117,7 +117,7 @@ knitr::include_graphics('quarto-file-create.jpg')
 * The code is written in **code chunks** that are denoted by three backticks to start and end the chunk
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of an R code chunk with no code in it", fig.align='center'}
-knitr::include_graphics('r-code-chunk-screenshot.png')
+knitr::include_graphics('images/r-code-chunk-screenshot.png')
 ```
 
 ---
@@ -125,7 +125,7 @@ knitr::include_graphics('r-code-chunk-screenshot.png')
 ## Example Quarto document screenshot
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of a Quarto document with some text, code, and a plot", fig.align='center', out.width="50%"}
-knitr::include_graphics('quarto-screenshot-example.png')
+knitr::include_graphics('images/quarto-screenshot-example.png')
 ```
 
 ---
@@ -195,7 +195,7 @@ knitr::include_graphics('quarto-screenshot-example.png')
 ## Make a table
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of the visual editor table dialog box", fig.align='center', out.width="50%"}
-knitr::include_graphics('insert-table-dialog.jpg')
+knitr::include_graphics('images/insert-table-dialog.jpg')
 ```
 
 ---
@@ -219,7 +219,7 @@ knitr::include_graphics('insert-table-dialog.jpg')
 ## Inserting citations
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of the insert citation dialog box in Quarto", fig.align='center', out.width="70%"}
-knitr::include_graphics('insert-citation-screenshot.jpg')
+knitr::include_graphics('images/insert-citation-screenshot.jpg')
 ```
 
 
@@ -258,7 +258,7 @@ knitr::include_graphics('insert-citation-screenshot.jpg')
 * Chunk options are a special form of annotation within a chunk formatted with `#|` before the option and using a colon instead of equal sign, like this: `#| warning: false`
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of the insert citation dialog box in Quarto", fig.align='center', out.width="50%"}
-knitr::include_graphics('chunk-options-quarto.jpg')
+knitr::include_graphics('images/chunk-options-quarto.jpg')
 ```
 
 
@@ -296,7 +296,11 @@ class: inverse
 
 ## Your Turn
 
+--
+
 * Copy the demonstration to combine the text and code files into the provided Quarto template (`quarto-template.qmd`) and format for rendering
+
+--
 
 * Try rendering the file to html
 

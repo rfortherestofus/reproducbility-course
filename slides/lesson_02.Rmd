@@ -2,7 +2,7 @@
 title: "Reproducibility Course Logistics"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -141,7 +141,7 @@ knitr::opts_chunk$set(
 ## The final product
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "A confused man looking at a piece of paper", out.height=500, out.width=500, fig.align='center'}
-knitr::include_graphics("cake.jpeg")
+knitr::include_graphics("images/cake.jpeg")
 ```
 
 ---

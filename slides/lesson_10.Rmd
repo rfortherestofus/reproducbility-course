@@ -2,7 +2,7 @@
 title: "Microsoft Word Documents with Quarto"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -58,7 +58,7 @@ knitr::opts_chunk$set(eval = FALSE,
 ## YAML with Word template
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot of YAML showing the addition of a Microsoft Word template", fig.align='center', out.width="50%"}
-knitr::include_graphics('word-doc-template-quarto.jpg')
+knitr::include_graphics('images/word-doc-template-quarto.jpg')
 ```
 
 ---
@@ -77,9 +77,15 @@ class: inverse
 
 ## Your Turn
 
+--
+
 * Render the file to Microsoft Word 
 
+--
+
 * Create and add a template
+
+--
 
 * Render again
 

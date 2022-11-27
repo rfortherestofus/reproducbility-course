@@ -2,7 +2,7 @@
 title: "Using Space Wisely"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -29,7 +29,7 @@ cars%>%ggplot(aes(x=speed,y=dist))+geom_point(color="purple")+theme_minimal()
 
 ---
 
-background-image: url("galileo.jpg")
+background-image: url("images/galileo.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: image of Galileo with a quote that says I-just-need-some-space"></span>
@@ -102,7 +102,7 @@ theme_minimal()
 ## Setting 80 character margin in R Studio
     
 ```{r echo = FALSE, eval = TRUE, fig.alt = "screenshot showing the R dialog box where you can change the margin to 80 characters", fig.align='center', out.width="50%"}
-knitr::include_graphics('characters80-screenshot.jpg')
+knitr::include_graphics('images/characters80-screenshot.jpg')
 ```
 
 ---
@@ -204,12 +204,12 @@ If you write or receive code that is not well formatted, there are tools to save
 ## Styler in action
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "Gif showing how styler works", out.width = "70%", fig.align='center'}
-knitr::include_graphics('stylerforgif.gif')
+knitr::include_graphics('images/stylerforgif.gif')
 ```
 
 ---
 
-background-image: url("drake-styler.jpg")
+background-image: url("images/drake-styler.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: meme of Drake shunning poorly formatted code but happy about well-formatted code"></span>

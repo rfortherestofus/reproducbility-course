@@ -2,7 +2,7 @@
 title: "What is Reproducibility?"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(eval = FALSE,
 ## Does this feel familiar?
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "A confused woman trying to read her code after eight months away", out.height=500, fig.align='center'}
-knitr::include_graphics("code-8mos.gif")
+knitr::include_graphics("images/code-8mos.gif")
 ```
 
 
@@ -31,7 +31,7 @@ knitr::include_graphics("code-8mos.gif")
 ## Or maybe this...
 
 ```{r echo = FALSE, eval = TRUE, fig.alt = "A confused man looking at a piece of paper", out.height=500, out.width=500, fig.align='center'}
-knitr::include_graphics("reading-code-i-wrote-last-year.png")
+knitr::include_graphics("images/reading-code-i-wrote-last-year.png")
 ```
 
 ---
@@ -60,7 +60,7 @@ knitr::include_graphics("reading-code-i-wrote-last-year.png")
 
 ---
 
-background-image: url("aaaaaa.jpg")
+background-image: url("images/aaaaaa.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: One possum yelling aaaaaa at another possum and the other possum yelling aaaaa back"></span>
@@ -146,7 +146,7 @@ background-size: contain
 
 ---
 
-background-image: url("huge-if-true.jpg")
+background-image: url("images/huge-if-true.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Large versions of the words if and true, huge if true"></span>
@@ -155,7 +155,7 @@ background-size: contain
 
 class: inverse, center, middle
 
-## Let's do this!
+# Let's do this!
 
 
 

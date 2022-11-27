@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Using Function Arguments</title>
+    <title>What is Reproducibility?</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 .title[
-# Using Function Arguments
+# What is Reproducibility?
 ]
 
 ---
@@ -22,211 +22,141 @@ class: center, middle, inverse, title-slide
 
 
 
-## Types of function arguments
+## Does this feel familiar?
 
---
-
-* There are two main types of arguments in most functions:
-
---
-
-  + arguments to specify data 
-
---
-  
-  + arguments to specify details of computation  
-
---
-    
-* For example, the `mean()` function has three arguments: 
-
---
-
-  + a data argument of `x = `
-
---
-  
-  + two detail arguments of `trim = ` and `na.rm = `
-    
----
-
-## Arguments of the `plot()` function
-
---
-    
-* `plot()` has eight arguments
-
---
-
-  + two data arguments of `x =` for the x-axis variable and `y =` for the y-axis variable
-
---
-
-  + six detail arguments of `type =`, `main =`, `sub =`, `xlab =`, `ylab =`, and `asp =`
-    
----
-
-## Knowing the arguments
-
---
-
-* The help documentation lists function arguments for each function 
-
---
-
-* For example, the `ggplot()` function has a `data = ` argument, a `mapping = ` argument, and an `environment = ` argument
-
---
-
-* The `ggplot()` function also has room for other arguments where you see `...` in the help documentation
-
---
-
-* The `ggplot()` function also calls the function, `aes()`, which has its own arguments
+&lt;img src="images/code-8mos.gif" alt="A confused woman trying to read her code after eight months away" height="500" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-## ggplot help documentation
+## Or maybe this...
 
-&lt;img src="ggplot-help-documentation.jpg" title="screenshot of help documentation for ggplot" alt="screenshot of help documentation for ggplot" width="1245" style="display: block; margin: auto;" /&gt;
-
+&lt;img src="images/reading-code-i-wrote-last-year.png" alt="A confused man looking at a piece of paper" width="500" height="500" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## The aes() arguments 
+## You are not alone
 
 --
 
-* The `aes()` function within the `ggplot()` function has arguments as well
+* Researchers could only replicate [21% of 67 drug studies](https://www.nature.com/articles/nrd3439-c1?linkId=33568131), [40% to 60% of psychology studies](https://doi.org/10.1126/science.aac4716), and [61% of economics studies](https://www.science.org/doi/abs/10.1126/science.aaf0918)
 
 --
 
-* It has two named arguments, `x` to specify what should go on the x-axis of the plot, and `y` to specify what should go on the y-axis of the plot
+* In a sample of psychology papers, [6% of p-values were incorrectly reported](https://link.springer.com/article/10.3758/s13428-015-0664-2) 
+
+--
+
+* [11% of p-values](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-4-13) were incorrectly reported in a sample of medical papers
+
+--
+
+* [20 to 80% of papers](https://retractionwatch.com/2017/04/21/dear-journals-clean-act-regards-concerned-biostatistican/) in each of ten top scientific journals omitted or were unclear about sample sizes and up to 40% of papers in each journal did not include the type of statistical tests performed 
+
+--
+
+* Tables were mislabeled in [three of six reproduced public health studies](https://journals.lww.com/jphmp/Abstract/2019/03000/Examining_the_Reproducibility_of_6_Published.6.aspx)
 
 ---
 
-## aes() help documentation
-
-&lt;img src="aes-help-documentation.jpg" title="screenshot of help documentation for aes layer in ggplot" alt="screenshot of help documentation for aes layer in ggplot" width="1251" style="display: block; margin: auto;" /&gt;
-
-
----
-
-background-image: url("onemillionrulesggplot.png")
+background-image: url("images/aaaaaa.jpg")
 background-size: contain
 
-&lt;span role="img" aria-label="Slide background shows: Tweet screenshot showing a lot of histograms with a caption about remembering all 1 million rules for ggplot"&gt;&lt;/span&gt;
+&lt;span role="img" aria-label="Slide background shows: One possum yelling aaaaaa at another possum and the other possum yelling aaaaa back"&gt;&lt;/span&gt;
 
 ---
 
-## Positional use of arguments 
+## What is reproducibility?
 
 --
 
-* Positional specification of the `ggplot()` arguments would be relying on the default order or **position** of the arguments
+* Analyses are **reproducible** when analyzing the same data with the same methods produces the same results.
 
 --
 
-* For example, positional use of arguments would be adding the data frame name and `x` and `y` arguments without using `data = `, `mapping =`, `x =`, and `y = `
-
----
-
-## Example of positional arguments
-
-
-```r
-library(package = "tidyverse")
-
-# using positional specification to plot
-# cars data speed on x-axis and distance on y-axis
-ggplot(cars, aes(speed, dist)) +
-  geom_point()
-```
-
----
-
-## Partial use of arguments
-
-* Partial use of arguments is specifying some, but not all, of the arguments explicitly 
-
-* The argument for data and other well-known arguments are often not specified 
-
-* For `ggplot()` the `data =` and `mapping =` are often left out, but other arguments are used
-
----
-
-## Example of partial arguments
-
-
-```r
-# using partial specification to plot
-# cars data speed on x-axis and distance on y-axis
-ggplot(cars, aes(x = speed, y = dist)) +
-  geom_point()
-```
-
----
-
-## Exact use of arguments
-
-* Exact use of arguments is specifying all of the arguments explicitly
-
-
-```r
-# using partial specification to plot
-# cars data speed on x-axis and distance on y-axis
-ggplot(data = cars, mapping = aes(x = speed, y = dist)) +
-  geom_point()
-```
-
----
-
-## The benefits of arguments
+* This is different from: 
 
 --
 
-* Exact and partial argument specification do not require you to remember the order of the arguments 
+     + **Repeatability**, which is the ability to conduct the same analysis on the same data (regardless of results) 
+  
+--
+
+     + **Replicability**, which is the ability collect new data, use the same methods, and get the same results (this is the gold standard!)
+     
+---
+
+## Why does it matter? 
+
 
 --
 
-* When the argument is explicitly specified, the order does not matter
+* [Errors and omissions](https://jme.bmj.com/content/37/4/249.short) can threaten the foundation of research that practitioners and policy-makers use to make decisions
+
 
 --
 
-* When the argument is implied, as in positional specification, the order must be exactly right
-
----
-
-## Example of positional vs. partial 
+* Poor quality research can also threaten human health with over [400,000 people enrolled and over 70,000 treated](https://jme.bmj.com/content/37/11/688.short) in medical studies later retracted
 
 
-```r
-# using positional specification
-ggplot(cars, aes(dist, speed)) +
-  geom_point()
+--
 
-# using partial specification with x and y arguments
-ggplot(cars, aes(y = dist, x = speed)) +
-  geom_point()
-```
-
----
-
-class: my-turn, center, middle
-
-# Demo
+* Retracted research [continues to be cited](https://jamanetwork.com/journals/jama/article-abstract/209653) after retraction, influencing additional science
 
 
+--
+
+* Adopting reproducible research practices improves quality and reduces errors
 
 
 ---
 
-class: inverse
+## How can I make my research reproducible? 
 
-## Your Turn
+--
 
-* Open the participant `unformatted-r-code.R` file and add argument names where needed
+* Two things are needed to reproduce research:
+
+--
+
+  + Access to the data 
+
+--
+
+  + Annotated and well-formatted clear statistical code or very detailed instructions
+    
+---
+
+## Another tool for improving reproducibility 
+
+--
+
+* [Quarto](https://quarto.org) is one of several tools for **literate programming** 
+
+--
+
+* Literate programming tools integrate text with statistical code and output in a single document
+
+--
+
+* By reducing the need to copy results from one software to another, this improves reproducibility
+
+--
+
+---
+
+background-image: url("images/huge-if-true.jpg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: Large versions of the words if and true, huge if true"&gt;&lt;/span&gt;
+
+---
+
+class: inverse, center, middle
+
+# Let's do this!
+
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

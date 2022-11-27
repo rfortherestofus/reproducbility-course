@@ -2,7 +2,7 @@
 title: "Managing R Package Versions for Reproducibility"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -47,7 +47,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ---
 
-background-image: url("al-gore-democratic-party.gif")
+background-image: url("images/al-gore-democratic-party.gif")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Al Gore gif; Al Gore is famous for using lockbox as a metaphor during presidential debates"></span>

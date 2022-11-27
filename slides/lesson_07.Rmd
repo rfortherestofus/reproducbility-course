@@ -2,7 +2,7 @@
 title: "Using Seed Values"
 output:
   xaringan::moon_reader:
-    css: ["style.css", "default"]
+    css: ["css/style.css", "default"]
     lib_dir: libs
     df_print: paged
     nature:
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ---
 
-background-image: url("commander-yiker.jpeg")
+background-image: url("images/commander-yiker.jpeg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Commander Riker from Star Trek looking surprised with the caption commander-yiker"></span>
@@ -112,7 +112,7 @@ sample_n(tbl = penguins, size = 4)
 
 ---
 
-background-image: url("twitchy-eye.gif")
+background-image: url("images/twitchy-eye.gif")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Character from Bob's burgers who has a twitchy eye"></span>
@@ -143,14 +143,14 @@ sample_n(tbl = penguins, size = 4)
 
 ---
 
-background-image: url("spiderman-samples.jpg")
+background-image: url("images/spiderman-samples.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Spiderman labeled sample 1 pointing at Spiderman labeled sample 2"></span>
 
 ---
 
-background-image: url("great-success.jpg")
+background-image: url("images/great-success.jpg")
 background-size: contain
 
 <span role="img" aria-label="Slide background shows: Borat with two thumbs up"></span>
