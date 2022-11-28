@@ -140,7 +140,7 @@ cars %>%
 
 ---
 
-## The styler package for automatic formatting
+## The `styler` package for automatic formatting
 
 --
 
@@ -148,11 +148,11 @@ If you write or receive code that is not well formatted, there are tools to save
 
 --
 
-* First, [styler](https://styler.r-lib.org) can style small amounts of code all the way to full documents
+* First, [`styler`](https://styler.r-lib.org) can style small amounts of code all the way to full documents
 
 --
 
-* To use styler, install it first, then choose one of the styler tools: 
+* To use `styler`, install it first, then choose one of the `styler` tools: 
 
 --
 
@@ -227,6 +227,8 @@ class: inverse
     + Add spaces after punctuation and around operators
     
     + Indent functions or processes that go together
+
+--
 
 * Choose an option: 
 

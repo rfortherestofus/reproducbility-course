@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Using Space Wisely</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+    <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Using Space Wisely
+]
+
+---
+
+
+
+
+## Code without space
+
+
+```r
+# no space
+library(package="tidyverse")
+cars%&gt;%ggplot(aes(x=speed,y=dist))+geom_point(color="purple")+theme_minimal()
+```
+
+---
+
+background-image: url("images/galileo.jpg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: image of Galileo with a quote that says I-just-need-some-space"&gt;&lt;/span&gt;
+
+---
+
+## Three different types of space
+
+--
+
+1) spacing before and after operators
+
+--
+
+2) line breaks or hard returns
+
+--
+
+3) indenting code
+
+---
+
+## Spacing before and after operators 
+
+
+
+```r
+library(package = "tidyverse")
+cars %&gt;% ggplot(aes(x = speed, y = dist)) + geom_point(color = "purple") + theme_minimal()
+```
+
+---
+
+## Line breaks or hard returns
+
+
+```r
+library(package = "tidyverse")
+
+cars %&gt;%  
+ggplot(aes(x = speed, y = dist)) + 
+geom_point(color = "purple") + 
+theme_minimal()
+```
+
+---
+
+## The 80 character rule
+
+--
+
+* Lines of code should be no longer than 80 characters (Shorter is even better!) 
+
+--
+
+* Counting your characters does not seem fun, keep to 80 characters or fewer with the help of R Studio:
+
+--
+
+  + Click on the `Tools` menu 
+   
+       + `Global Options` 
+       
+           + `Code` 
+           
+               + `Display` 
+               
+                   + `Show Margin` 
+
+---
+
+## Setting 80 character margin in R Studio
+    
+&lt;img src="images/characters80-screenshot.jpg" alt="screenshot showing the R dialog box where you can change the margin to 80 characters" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Indenting code
+
+Multiline code that is all part of a single function or process can use indentation to show it belongs together
+
+
+```r
+cars %&gt;% 
+  ggplot(aes(x = speed, y = dist)) + 
+  geom_point(color = "purple") + 
+  theme_minimal()
+```
+
+---
+
+## When should I format my code?
+
+--
+
+* The best time to format your code is as you are coding
+
+--
+
+* The second best time is now
+
+--
+
+* This could induce a mild panic if you are looking at files with hundreds of lines of unformatted code
+
+--
+
+* Never fear, the `styler` package that can help
+
+---
+
+## The `styler` package for automatic formatting
+
+--
+
+If you write or receive code that is not well formatted, there are tools to save some time in formatting
+
+--
+
+* First, [`styler`](https://styler.r-lib.org) can style small amounts of code all the way to full documents
+
+--
+
+* To use `styler`, install it first, then choose one of the `styler` tools: 
+
+--
+
+  + `style_text()` function to style small amounts of code
+
+--
+  
+  + `style_file()` function to style specified R or Rmd files
+
+--
+  
+  + `style_dir()` function to style all R and Rmd files in a directory
+
+--
+  
+  + `style_pkg()` function to style the source files for R packages
+
+--
+  
+  + RStudio Addin to apply these functions from a drop-down menu
+    
+---
+
+## Using styler
+
+--
+
+
+* Install the `styler` package
+
+--
+
+* Open your unformatted code file 
+
+--
+
+* Open the `tidyverse`
+
+--
+
+* Click the Addins menu in RStudio
+
+--
+
+* Choose `Style active file` from the menu
+
+---
+
+## Styler in action
+
+&lt;img src="images/stylerforgif.gif" alt="Gif showing how styler works" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+background-image: url("images/drake-styler.jpg")
+background-size: contain
+
+&lt;span role="img" aria-label="Slide background shows: meme of Drake shunning poorly formatted code but happy about well-formatted code"&gt;&lt;/span&gt;
+
+---
+
+class: inverse
+
+## Your Turn
+
+* Open the `unformatted-r-code.R` file and fix the formatting 
+
+    + Add hard returns to keep lines short 
+    
+    + Add spaces after punctuation and around operators
+    
+    + Indent functions or processes that go together
+
+--
+
+* Choose an option: 
+
+    + Fix the formatting by hand 
+    
+    + Fix the formatting by hand then then run `styler` to find anything missed 
+    
+    + Fix it using the `styler` package entirely
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
