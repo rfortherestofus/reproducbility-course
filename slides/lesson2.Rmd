@@ -94,7 +94,7 @@ knitr::opts_chunk$set(
 
 --
 
-* Several files are included for you to follow along as we create a fully reproducible document together (see the `participant-materials` folder). 
+* Several files are included for you to follow along
 
 --
 
@@ -126,7 +126,7 @@ knitr::opts_chunk$set(
 
 --
       
-  + RProj file called `participant-materials.RProj`
+  + RProj file called `reproducibility-course-materials.RProj`
 
 --
 
@@ -151,10 +151,10 @@ Run the following code to access the course materials:
 ```{r}
 library(usethis)
 
-use_course("https://github.com/rfortherestofus/reproducibility-course/archive/refs/heads/main.zip")
+use_course("https://github.com/rfortherestofus/reproducibility-course-materials/archive/refs/heads/main.zip")
 ```
 
 --
 
-Once you do this, RStudio should open the project with all of the materials you'll need (your project will be called `reproducibility-course-main`).
+Once you do this, RStudio should open the project with all of the materials you'll need (your project will be called `reproducibility-course-materials`).
 
