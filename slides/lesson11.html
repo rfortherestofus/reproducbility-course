@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Managing R Package Versions for Reproducibility</title>
+    <title>Managing Project Files for Reproducibility</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Managing R Package Versions for Reproducibility
+# Managing Project Files for Reproducibility
 ]
 
 ---
@@ -22,38 +22,91 @@ class: center, middle, inverse, title-slide
 
 
 
-## R packages change over time
+## Pesky file locations 
 
 --
 
-* R packages are open source, created by the R community members rather than a single company
+* Importing data, graphics, and other information into R Markdown or R script files requires specifying the location where the data, graphics, or other files are kept
 
 --
 
-* R packages are often updated to fix bugs or add or refine features 
+* One way to specify the location is to use a local file path to give the exact location of the data, graphics, or other information  
 
 --
 
-* Some updates to R packages can change how a function works or even whether a function exists 
+* Another way to specify location is to use the `setwd()` function to specify an *absolute* file path as the location where R should look for files 
+
+--
+
+* Both of these methods are problematic since they can easily break and are not useful to collaborators 
+
+--
+
+* Instead, using R Project files and the `here` package solve these problems by linking together your files and making file paths relative
 
 ---
 
-## Package changes and reproducibility
+## R Projects for reproducibility
 
 --
 
-* For an R document to be fully reproducible, the version of the package originally used might be needed
+* An R Project file can be added to a local folder and will show up in the folder with an `.Rproj` file extension 
 
 --
 
-* The `renv` package is useful for creating a "lockfile" that stores the versions of R packages used in a document
+* When an `.Rproj` file is opened, the project directory becomes the working directory
+
+--
+
+* R Markdown and Source files in the folder with the R project file can import data and other files using the location of the file relative to the working directory
+
+--
+
+* For simple project with a few files, adding and R project file is all you need
 
 ---
 
-background-image: url("al-gore-democratic-party.gif")
-background-size: contain
+## The here package for reproducibility
 
-&lt;span role="img" aria-label="Slide background shows: Al Gore gif; Al Gore is famous for using lockbox as a metaphor during presidential debates"&gt;&lt;/span&gt;
+--
+
+* Large R projects that contain multiple subfolders make even relative file paths challenging 
+
+
+--
+
+* For these projects, the `here` package is a useful tool 
+
+--
+
+* The `here` package creates file paths relative to the working directory of the project 
+
+
+---
+
+## Using the here package
+
+--
+
+* After installing and opening the `here` package, use `i_am()` and specify a file path for the current file that is relative to the project main directory (the place you stored your `.Rproj` file) 
+
+--
+
+* After using `i_am()` in a file, use the `here()` function to specify file locations relative to the project main directory
+
+--
+
+* This is most useful when data and other files are in subfolders of the main directory; when everything is in the same folder, it seems unnecessary 
+
+--
+
+* For example, if a csv data file called projectdata.csv were in a subfolder of the main project folder with the subfolder named "datafiles," the here function would build the location of the data like this: 
+
+
+```r
+data &lt;- read_csv(here("datafiles", "projectdata.csv"))
+```
+
 
 ---
 

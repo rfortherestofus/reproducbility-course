@@ -15,6 +15,7 @@ library(package = "table1")
 library(package = "finalfit")
 library(package = "knitr")
 library(package = "xfun")
+library(package = "here")
 ```
 
 ### Project description
@@ -26,46 +27,46 @@ The data and code book are available on the Pew website (need free account).
 ```{r}
 #| echo: false
 
-xfun::embed_files(c("Formatted-reproducible-project.qmd","Pew Research Center 2019 Global Attitudes Survey WEB .docx","Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav","references.bib"), text = "Download data, code, codebook, and text here.")
+xfun::embed_files(c("Formatted-reproducible-project.qmd","datafiles/Pew Research Center 2019 Global Attitudes Survey WEB .docx","datafiles/Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav","references.bib"), text = "Download data, code, codebook, and text here.")
 ```
 
 ### Measurement
 
 To answer my research question, I used a subset of the data that included survey participants responses to the following questions: *As I read some policies of U.S. President Donald Trump, please tell me if you approve or disapprove of each one. How about \[INSERT ITEM\]?*
 
-+----------------------------------------------------------------------------------------------------+--------------------------+
-| Items                                                                                              | Response options         |
-+====================================================================================================+==========================+
-| U.S. withdrawal from international climate change agreements                                       | 1 = Approve\             |
-|                                                                                                    | 2 = Disapprove\          |
-|                                                                                                    | 8 = Don't know\          |
-|                                                                                                    | 9 = Refused              |
-+----------------------------------------------------------------------------------------------------+--------------------------+
-| Building a wall on the border between the U.S. and Mexico                                          | 1 = Approve\             |
-|                                                                                                    | 2 = Disapprove\          |
-|                                                                                                    | 8 = Don't know\          |
-|                                                                                                    | 9 = Refused              |
-+----------------------------------------------------------------------------------------------------+--------------------------+
-| U.S. withdrawal from the Iran nuclear weapons agreement                                            | 1 = Approve\             |
-|                                                                                                    | 2 = Disapprove\          |
-|                                                                                                    | 8 = Don't know\          |
-|                                                                                                    | 9 = Refused              |
-+----------------------------------------------------------------------------------------------------+--------------------------+
-| Allowing fewer immigrants into the U.S.                                                            | 1 = Approve\             |
-|                                                                                                    | 2 = Disapprove\          |
-|                                                                                                    | 8 = Don't know\          |
-|                                                                                                    | 9 = Refused              |
-+----------------------------------------------------------------------------------------------------+--------------------------+
-| U.S. increasing tariffs or fees on imported goods from other countries                             | 1 = Approve\             |
-|                                                                                                    | 2 = Disapprove\          |
-|                                                                                                    | 8 = Don't know\          |
-|                                                                                                    | 9 = Refused              |
-+----------------------------------------------------------------------------------------------------+--------------------------+
-| U.S. negotiations with North Korean leader Kim Jong-Un about the country's nuclear weapons program | 1 = Approve\             |
-|                                                                                                    | 2 = Disapprove\          |
-|                                                                                                    | 8 = Don't know\          |
-|                                                                                                    | 9 = Refused              |
-+----------------------------------------------------------------------------------------------------+--------------------------+
++----------------------------------------------------------------------------------------------------+------------------+
+| Items                                                                                              | Response options |
++====================================================================================================+==================+
+| U.S. withdrawal from international climate change agreements                                       | 1 = Approve\     |
+|                                                                                                    | 2 = Disapprove\  |
+|                                                                                                    | 8 = Don't know\  |
+|                                                                                                    | 9 = Refused      |
++----------------------------------------------------------------------------------------------------+------------------+
+| Building a wall on the border between the U.S. and Mexico                                          | 1 = Approve\     |
+|                                                                                                    | 2 = Disapprove\  |
+|                                                                                                    | 8 = Don't know\  |
+|                                                                                                    | 9 = Refused      |
++----------------------------------------------------------------------------------------------------+------------------+
+| U.S. withdrawal from the Iran nuclear weapons agreement                                            | 1 = Approve\     |
+|                                                                                                    | 2 = Disapprove\  |
+|                                                                                                    | 8 = Don't know\  |
+|                                                                                                    | 9 = Refused      |
++----------------------------------------------------------------------------------------------------+------------------+
+| Allowing fewer immigrants into the U.S.                                                            | 1 = Approve\     |
+|                                                                                                    | 2 = Disapprove\  |
+|                                                                                                    | 8 = Don't know\  |
+|                                                                                                    | 9 = Refused      |
++----------------------------------------------------------------------------------------------------+------------------+
+| U.S. increasing tariffs or fees on imported goods from other countries                             | 1 = Approve\     |
+|                                                                                                    | 2 = Disapprove\  |
+|                                                                                                    | 8 = Don't know\  |
+|                                                                                                    | 9 = Refused      |
++----------------------------------------------------------------------------------------------------+------------------+
+| U.S. negotiations with North Korean leader Kim Jong-Un about the country's nuclear weapons program | 1 = Approve\     |
+|                                                                                                    | 2 = Disapprove\  |
+|                                                                                                    | 8 = Don't know\  |
+|                                                                                                    | 9 = Refused      |
++----------------------------------------------------------------------------------------------------+------------------+
 
 This paragraph might talk about about the process and statistical methods used. What happened during data management (recoding, missing value handling), which descriptive statistics and statistical tests were used, what assumptions were checked.
 
@@ -73,8 +74,11 @@ This paragraph might talk about about the process and statistical methods used. 
 #| echo: false
 #| results: false
 
+# define where this file is relative to the project root
+i_am("Formatted-reproducible-project.qmd")
+
 # import 2019 Pew data on global policy attitudes
-globalData2019 <- read_spss("Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav")
+globalData2019 <- read_spss(here("datafiles", "Pew Research Center Global Attitudes Spring 2019 Dataset WEB.sav"))
 
 # sample 10,000 from the Pew file
 set.seed(seed = 42)
