@@ -27,11 +27,11 @@ knitr::opts_chunk$set(eval = FALSE,
 
 --
 
-  + arguments to specify data 
+  + Arguments to specify data 
 
 --
   
-  + arguments to specify details of computation  
+  + Arguments to specify details of computation  
 
 --
     
@@ -39,11 +39,11 @@ knitr::opts_chunk$set(eval = FALSE,
 
 --
 
-  + a data argument of `x = `
+  + A data argument of `x = `
 
 --
   
-  + two detail arguments of `trim = ` and `na.rm = `
+  + Two detail arguments of `trim = ` and `na.rm = `
     
 ---
 
@@ -55,11 +55,11 @@ knitr::opts_chunk$set(eval = FALSE,
 
 --
 
-  + two data arguments of `x =` for the x-axis variable and `y =` for the y-axis variable
+  + Two data arguments of `x =` for the x-axis variable and `y =` for the y-axis variable
 
 --
 
-  + six detail arguments of `type =`, `main =`, `sub =`, `xlab =`, `ylab =`, and `asp =`
+  + Six detail arguments of `type =`, `main =`, `sub =`, `xlab =`, `ylab =`, and `asp =`
     
 ---
 

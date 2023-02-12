@@ -40,15 +40,15 @@ background-size: contain
 
 --
 
-1) spacing before and after operators
+1) Spacing before and after operators
 
 --
 
-2) line breaks or hard returns
+2) Line breaks or hard returns
 
 --
 
-3) indenting code
+3) Indenting code
 
 ---
 

@@ -168,9 +168,9 @@ class: inverse
 
 ## Your Turn
 
-* Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code  for reproducible results
+* Open the participant `unformatted-r-code.R` file and add `set.seed()` before the sampling code for reproducible results
 
-* Note that the `sample()` function used in these slides will be overwritten by the `sample()` function in the dplyr
+* Note that the `sample()` function used in these slides will be overwritten by the `sample()` function in `dplyr` if the `dplyr` package is open
 
 
 
