@@ -160,11 +160,11 @@ If you write or receive code that is not well formatted, there are tools to save
 
 --
   
-  + `style_file()` function to style specified R or Rmd files
+  + `style_file()` function to style specified files
 
 --
   
-  + `style_dir()` function to style all R and Rmd files in a directory
+  + `style_dir()` function to style all relevant files in a directory
 
 --
   

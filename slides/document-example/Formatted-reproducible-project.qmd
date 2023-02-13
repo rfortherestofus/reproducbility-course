@@ -34,39 +34,39 @@ xfun::embed_files(c("Formatted-reproducible-project.qmd","datafiles/Pew Research
 
 To answer my research question, I used a subset of the data that included survey participants responses to the following questions: *As I read some policies of U.S. President Donald Trump, please tell me if you approve or disapprove of each one. How about \[INSERT ITEM\]?*
 
-+----------------------------------------------------------------------------------------------------+------------------+
-| Items                                                                                              | Response options |
-+====================================================================================================+==================+
-| U.S. withdrawal from international climate change agreements                                       | 1 = Approve\     |
-|                                                                                                    | 2 = Disapprove\  |
-|                                                                                                    | 8 = Don't know\  |
-|                                                                                                    | 9 = Refused      |
-+----------------------------------------------------------------------------------------------------+------------------+
-| Building a wall on the border between the U.S. and Mexico                                          | 1 = Approve\     |
-|                                                                                                    | 2 = Disapprove\  |
-|                                                                                                    | 8 = Don't know\  |
-|                                                                                                    | 9 = Refused      |
-+----------------------------------------------------------------------------------------------------+------------------+
-| U.S. withdrawal from the Iran nuclear weapons agreement                                            | 1 = Approve\     |
-|                                                                                                    | 2 = Disapprove\  |
-|                                                                                                    | 8 = Don't know\  |
-|                                                                                                    | 9 = Refused      |
-+----------------------------------------------------------------------------------------------------+------------------+
-| Allowing fewer immigrants into the U.S.                                                            | 1 = Approve\     |
-|                                                                                                    | 2 = Disapprove\  |
-|                                                                                                    | 8 = Don't know\  |
-|                                                                                                    | 9 = Refused      |
-+----------------------------------------------------------------------------------------------------+------------------+
-| U.S. increasing tariffs or fees on imported goods from other countries                             | 1 = Approve\     |
-|                                                                                                    | 2 = Disapprove\  |
-|                                                                                                    | 8 = Don't know\  |
-|                                                                                                    | 9 = Refused      |
-+----------------------------------------------------------------------------------------------------+------------------+
-| U.S. negotiations with North Korean leader Kim Jong-Un about the country's nuclear weapons program | 1 = Approve\     |
-|                                                                                                    | 2 = Disapprove\  |
-|                                                                                                    | 8 = Don't know\  |
-|                                                                                                    | 9 = Refused      |
-+----------------------------------------------------------------------------------------------------+------------------+
++----------------------------------------------------------------------------------------------------+-----------------------------+
+| Items                                                                                              | Response options            |
++====================================================================================================+=============================+
+| U.S. withdrawal from international climate change agreements                                       | 1 = Approve\                |
+|                                                                                                    | 2 = Disapprove\             |
+|                                                                                                    | 8 = Don't know\             |
+|                                                                                                    | 9 = Refused                 |
++----------------------------------------------------------------------------------------------------+-----------------------------+
+| Building a wall on the border between the U.S. and Mexico                                          | 1 = Approve\                |
+|                                                                                                    | 2 = Disapprove\             |
+|                                                                                                    | 8 = Don't know\             |
+|                                                                                                    | 9 = Refused                 |
++----------------------------------------------------------------------------------------------------+-----------------------------+
+| U.S. withdrawal from the Iran nuclear weapons agreement                                            | 1 = Approve\                |
+|                                                                                                    | 2 = Disapprove\             |
+|                                                                                                    | 8 = Don't know\             |
+|                                                                                                    | 9 = Refused                 |
++----------------------------------------------------------------------------------------------------+-----------------------------+
+| Allowing fewer immigrants into the U.S.                                                            | 1 = Approve\                |
+|                                                                                                    | 2 = Disapprove\             |
+|                                                                                                    | 8 = Don't know\             |
+|                                                                                                    | 9 = Refused                 |
++----------------------------------------------------------------------------------------------------+-----------------------------+
+| U.S. increasing tariffs or fees on imported goods from other countries                             | 1 = Approve\                |
+|                                                                                                    | 2 = Disapprove\             |
+|                                                                                                    | 8 = Don't know\             |
+|                                                                                                    | 9 = Refused                 |
++----------------------------------------------------------------------------------------------------+-----------------------------+
+| U.S. negotiations with North Korean leader Kim Jong-Un about the country's nuclear weapons program | 1 = Approve\                |
+|                                                                                                    | 2 = Disapprove\             |
+|                                                                                                    | 8 = Don't know\             |
+|                                                                                                    | 9 = Refused                 |
++----------------------------------------------------------------------------------------------------+-----------------------------+
 
 This paragraph might talk about about the process and statistical methods used. What happened during data management (recoding, missing value handling), which descriptive statistics and statistical tests were used, what assumptions were checked.
 
