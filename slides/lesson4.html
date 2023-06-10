@@ -3,7 +3,7 @@
   <head>
     <title>Naming All the Things</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.18/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
     <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -183,6 +183,41 @@ library(package = "tidyverse")
 # name the new data frame using camelCase
 carsRecoded &lt;- cars %&gt;% 
   rename(miles_hour = speed)
+
+# check your work
+summary(carsRecoded)
+```
+
+---
+
+## A shortcut with clean_names()
+
+--
+
+* The `janitor` package includes the `clean_names()` function to reformat  all variable names in a data frame 
+
+--
+
+* The default format is **snake_case** but this can be changed using the `case = ` argument
+
+--
+
+* Note that `clean_names()` does not know word meanings nor where words start and stop, so `VARIABLEONE` would be changed to `variableone`
+
+--
+
+* To use `clean_names()`, install and open the `janitor` package and add the function at the end of your data management using a pipe, like this:
+
+
+```r
+# install and open janitor
+library(package = "janitor")
+
+# rename the speed variable using snake_case
+# name the new data frame using camelCase
+carsRecoded &lt;- cars %&gt;% 
+  rename(MILES_HOUR = speed) %&gt;% 
+  clean_names()
 
 # check your work
 summary(carsRecoded)
